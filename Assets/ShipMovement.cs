@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class ShipMovement : MonoBehaviour
 {
     public InputAction movementAction;
+    public InputAction rollAction;
     public InputAction boostAction;
     public InputAction lookAction;
 
@@ -20,22 +21,61 @@ public class ShipMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        movementAction.Enable();
+        rollAction.Enable();
+        boostAction.Enable();
+        lookAction.Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        KeyboardMovement();
+        Movement();
     }
 
-    public void KeyboardMovement() {
-        float horizontal = Input.GetAxis("Horizontal");
-        float forward = Input.GetAxis("Forward");
-        float vertical = Input.GetAxis("Vertical");
+    public void Movement() {
+        //GET VALS:
+        //move vec
+        Vector3 movement = movementAction.ReadValue<Vector3>();
+        //roll val
+        float roll = rollAction.ReadValue<float>();
+        //boost val
+        float boost = boostAction.ReadValue<float>();
 
-        Vector3 movement = new Vector3(horizontal, vertical, forward);
 
-        transform.Translate(movement * Time.deltaTime);
+        //SET VALS:
+        //calc individual movement values
+        float forward = movement.z * forwardSpeed * (1 + boost);
+        float strafe = movement.x * strafeSpeed;
+        float vertical = movement.y * verticalSpeed;
+
+        //calc total movement
+        Vector3 totalMovement = new Vector3(strafe, vertical, forward);
+
+
+        //MOVEMENT:
+        //rotate ship
+        transform.RotateAround(transform.position, transform.forward, roll * rollSpeed * Time.deltaTime);
+
+        //move ship
+        transform.Translate(totalMovement * Time.deltaTime, Space.Self);
+    }
+
+    public void Looking() {
+        //GET VALS:
+        //look vec
+        Vector2 look = lookAction.ReadValue<Vector2>();
+
+        //SET VALS:
+        //calc individual look values
+        float yaw = look.x * turnSpeed;
+        float pitch = look.y * turnSpeed;
+
+        //calc total look
+        Vector3 totalLook = new Vector3(0, yaw, pitch);
+
+        //LOOKING:
+        //rotate ship
+        transform.Rotate(totalLook, Space.Self);
     }
 }

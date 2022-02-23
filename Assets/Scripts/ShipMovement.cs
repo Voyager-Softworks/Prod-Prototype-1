@@ -58,8 +58,7 @@ public class ShipMovement : MonoBehaviour
         float boost = boostAction.ReadValue<float>();
 
         //throttle calcs
-        currentThrottle += movement.z * Time.deltaTime;
-        currentThrottle = Mathf.Clamp(currentThrottle, 0.0f, 1.0f);
+        currentThrottle = Mathf.Lerp(currentThrottle, trottleCurve.Evaluate(movement.z), Time.deltaTime * 5.0f);
 
         float trottle = trottleCurve.Evaluate(currentThrottle) * 50.0f;
         

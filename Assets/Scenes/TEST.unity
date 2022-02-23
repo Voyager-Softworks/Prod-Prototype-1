@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.25343084, g: 0.283692, b: 0.5400448, a: 1}
+  m_IndirectSpecularColor: {r: 1481.7754, g: 1835.8867, b: 2430.4492, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1247,6 +1247,62 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[0].time
+      value: -0.5028847
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[1].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[0].value
+      value: -0.5054477
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[2].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[2].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[2].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: trottleCurve.m_Curve.Array.data[0].outWeight
+      value: 0.63032377
+      objectReference: {fileID: 0}
     - target: {fileID: 1727183194268762315, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
       propertyPath: m_Name
       value: Ship

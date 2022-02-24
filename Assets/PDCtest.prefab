@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7321661417780083505}
   - component: {fileID: 7321661417780083510}
   - component: {fileID: 7321661417780083511}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7321661417884077223}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 7321661418278842118}
   - component: {fileID: 7321661418278842119}
   - component: {fileID: 7321661418278842116}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TurretHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7321661418488293060}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 7321661418599940599}
   - component: {fileID: 7321661418599940596}
   - component: {fileID: 7321661418599940597}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 7321661418665927381}
   - component: {fileID: 7321661418665927466}
   - component: {fileID: 7321661418665927467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 7321661418893896325}
   - component: {fileID: 7321661418893896346}
   - component: {fileID: 7321661418893896347}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7321661418991486668}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +582,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7321661419337590129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7321661419659511022}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7321661419694923353}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,7 +679,7 @@ GameObject:
   - component: {fileID: 7321661419783889881}
   - component: {fileID: 7321661419783889861}
   - component: {fileID: 7321661419783889860}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PDCtest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +779,7 @@ MonoBehaviour:
   rotatingPart: {fileID: 7321661419694923353}
   targetLock: {fileID: 0}
   targetRigidbody: {fileID: 0}
-  rotateSpeed: 5
+  rotateSpeed: 10
   aimLeadMultiplier: 10
   maxRotateAngle: 90
   weapon: {fileID: 7321661419783889860}
@@ -817,7 +817,7 @@ GameObject:
   - component: {fileID: 7321661419840727645}
   - component: {fileID: 7321661419840727634}
   - component: {fileID: 7321661419840727635}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunRear
   m_TagString: Untagged
   m_Icon: {fileID: 0}

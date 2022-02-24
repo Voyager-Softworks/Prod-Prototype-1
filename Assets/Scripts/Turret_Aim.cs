@@ -27,12 +27,11 @@ public class Turret_Aim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Aim();
-        weapon.TryShoot();
+        if(Aim()) weapon.TryShoot();
     }
 
     //Aim towards the target if it is in range and the angle is not too large
-    public void Aim()
+    public bool Aim()
     {
         if (targetLock != null && targetRigidbody != null)
         {
@@ -43,11 +42,20 @@ public class Turret_Aim : MonoBehaviour
                 targetDir.Normalize();
                 Quaternion targetRotation = Quaternion.LookRotation(targetDir);
                 rotatingPart.rotation = Quaternion.Slerp(rotatingPart.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+                return true;
+            }
+            else
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(transform.forward);
+                rotatingPart.rotation = Quaternion.Slerp(rotatingPart.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+                return false;
             }
         }
         else
         {
-            rotatingPart.rotation = Quaternion.Slerp(rotatingPart.rotation, Quaternion.identity, rotateSpeed * Time.deltaTime);
+            Quaternion targetRotation = Quaternion.LookRotation(transform.forward);
+            rotatingPart.rotation = Quaternion.Slerp(rotatingPart.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+            return false;
         }
     }
 

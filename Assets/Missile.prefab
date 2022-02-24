@@ -281,8 +281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93779af86b2fec7589bed410e4cd216a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 2000
-  turnSpeed: 1000
+  thrust: 1000
+  turnSpeed: 20
   secondsOfFuel: 20
   targetLock: {fileID: 0}
   thrusterDelay: 1

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class ShipMovement : MonoBehaviour
 {
@@ -14,9 +16,16 @@ public class ShipMovement : MonoBehaviour
     public AnimationCurve trottleCurve;
     public float currentThrottle = 0.0f;
 
+    public float strafeSpeed = 20.0f;
+    public float rollSpeed = 5.0f;
+
     public GameObject o_camera;
     public GameObject o_hull;
     public GameObject o_wings;
+
+    public GameObject ui_speedometer;
+    public GameObject ui_throttleBar;
+    public TextMeshProUGUI ui_dampenText;
 
     [SerializeField] private Transform t_shootspot;
     public GameObject p_bullet;
@@ -46,6 +55,9 @@ public class ShipMovement : MonoBehaviour
         Looking();
 
         TESTShoot();
+
+        //update UI
+        UpdateUI();
     }
 
     public void Movement() {
@@ -65,17 +77,17 @@ public class ShipMovement : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(transform.forward * trottle);
 
         //strafe calcs
-        float strafe = movement.x * 20;
+        float strafe = movement.x * strafeSpeed;
         
         GetComponent<Rigidbody>().AddForce(transform.right * strafe);
 
         //elevate calcs
-        float elevate = movement.y * 20;
+        float elevate = movement.y * strafeSpeed;
 
         GetComponent<Rigidbody>().AddForce(transform.up * elevate);
 
         //roll calcs
-        float rollForce = roll * 5;
+        float rollForce = roll * rollSpeed;
         GetComponent<Rigidbody>().AddTorque(transform.forward * rollForce);
 
 
@@ -84,7 +96,7 @@ public class ShipMovement : MonoBehaviour
     public void ToggleDampen(InputAction.CallbackContext context) {
         Debug.Log("Dampener toggled");
         if (context.performed) {
-            GetComponent<Rigidbody>().drag = GetComponent<Rigidbody>().drag == 0.0f ? 0.5f : 0.0f;
+            GetComponent<Rigidbody>().drag = GetComponent<Rigidbody>().drag == 0.0f ? 1.5f : 0.0f;
         }
     }
 
@@ -102,6 +114,32 @@ public class ShipMovement : MonoBehaviour
         //torque ship towards look
         GetComponent<Rigidbody>().AddTorque(transform.up * look.x * 0.25f);
         GetComponent<Rigidbody>().AddTorque(transform.right * look.y * 0.25f);
+    }
+
+    public void UpdateUI() {
+        //get velocity
+        Vector3 velocity = GetComponent<Rigidbody>().velocity;
+
+        //get forward component of velocity
+        float speed = Vector3.Project(velocity, transform.forward).magnitude;
+
+        //update speedometer
+        ui_speedometer.GetComponent<TextMeshProUGUI>().text = speed.ToString("F0") + " m/s";
+
+        //update throttle bar
+        ui_throttleBar.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Abs(currentThrottle) * 200 - 200, 25);
+
+        Color niceGreen = Color.green / 1.5f;
+        Color niceRed = Color.red / 1.5f;
+
+        //update colour of throttle bar
+        ui_throttleBar.GetComponent<Image>().color = currentThrottle > 0 ? niceGreen : niceRed;
+
+        //update dampen text
+        bool isDampened = GetComponent<Rigidbody>().drag != 0.0f;
+        ui_dampenText.text = isDampened ? "DAMPENED" : "UN-DAMPENED";
+        ui_dampenText.fontStyle = isDampened ? FontStyles.Normal : FontStyles.Underline;
+        ui_dampenText.color = isDampened ? niceGreen : niceRed - new Color(0, 0, 0, 0.5f);
     }
 
     float lastShoot = 0f;
@@ -126,8 +164,10 @@ public class ShipMovement : MonoBehaviour
             //calc bullet direction
             Vector3 direction = hitpos - t_shootspot.position;
 
-            //set velocity
-            bullet.GetComponent<Rigidbody>().velocity = direction.normalized * 50.0f;
+            //set initial temp velocity
+            Vector3 tempVel = direction.normalized * 50.0f + GetComponent<Rigidbody>().velocity;
+            //set real velocity
+            bullet.GetComponent<Rigidbody>().velocity = direction.normalized * tempVel.magnitude;
 
             //destroy bullet after 10 seconds
             Destroy(bullet, 10f);

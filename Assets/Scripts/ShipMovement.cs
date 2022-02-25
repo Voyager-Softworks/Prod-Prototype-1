@@ -97,6 +97,7 @@ public class ShipMovement : MonoBehaviour
         Debug.Log("Dampener toggled");
         if (context.performed) {
             GetComponent<Rigidbody>().drag = GetComponent<Rigidbody>().drag == 0.0f ? 1.5f : 0.0f;
+            GetComponent<Rigidbody>().angularDrag = GetComponent<Rigidbody>().angularDrag == 0.5f ? 1.0f : 0.5f;
         }
     }
 
@@ -156,9 +157,14 @@ public class ShipMovement : MonoBehaviour
 
             //raycast to find target position
             Vector3 hitpos = t_shootspot.position + t_shootspot.forward;
+            Vector3 targetVel = Vector3.zero;
             RaycastHit hit;
             if (Physics.Raycast(o_camera.transform.position, o_camera.transform.forward, out hit)) {
                 hitpos = hit.point;
+
+                if (hit.rigidbody) {
+                    targetVel = hit.rigidbody.velocity;
+                }
             }
 
             //calc bullet direction
@@ -168,9 +174,11 @@ public class ShipMovement : MonoBehaviour
             Vector3 tempVel = direction.normalized * 50.0f + GetComponent<Rigidbody>().velocity;
             //set real velocity
             bullet.GetComponent<Rigidbody>().velocity = direction.normalized * tempVel.magnitude;
+            //add target vel if it exists
+            bullet.GetComponent<Rigidbody>().velocity += targetVel;
 
             //destroy bullet after 10 seconds
-            Destroy(bullet, 10f);
+            Destroy(bullet, 30f);
         }
     }
 }

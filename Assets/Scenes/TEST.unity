@@ -4757,10 +4757,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1715567870192239961, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: o_camera
+      value: 
+      objectReference: {fileID: 359271045}
     - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
       propertyPath: ui_dampenText
       value: 
@@ -4773,62 +4773,6 @@ PrefabInstance:
       propertyPath: ui_throttleBar
       value: 
       objectReference: {fileID: 1099860256}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[0].time
-      value: -0.5028847
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[1].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[2].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[0].value
-      value: -0.5054477
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[2].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[0].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[2].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[0].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[1].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[2].outSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: trottleCurve.m_Curve.Array.data[0].outWeight
-      value: 0.63032377
-      objectReference: {fileID: 0}
     - target: {fileID: 1727183194268762315, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
       propertyPath: m_Name
       value: Ship
@@ -4880,18 +4824,6 @@ PrefabInstance:
     - target: {fileID: 2378846037226333497, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653552038302709330, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653552038302709330, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -17.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653552038302709341, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: far clip plane
-      value: 10000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}

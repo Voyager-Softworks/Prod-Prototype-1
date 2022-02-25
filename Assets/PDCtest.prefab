@@ -796,9 +796,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071815fa8a0799321a42b580fb7d8462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clipSize: 100
+  clipSize: 20
   firingDelay: 0.1
-  reloadTime: 1
+  reloadTime: 2
   muzzlePositions:
   - {fileID: 7321661418488293060}
   - {fileID: 7321661419337590129}

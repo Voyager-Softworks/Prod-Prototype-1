@@ -26,7 +26,7 @@ public class AsteroidManager : MonoBehaviour
     {
         float x = Random.Range(-asteroidFieldRadius, asteroidFieldRadius);
         float z = Random.Range(-asteroidFieldRadius, asteroidFieldRadius);
-        float y = Random.Range(-asteroidFieldHeight, asteroidFieldHeight);
+        float y = Random.Range(-asteroidFieldHeight/2.0f, asteroidFieldHeight/2.0f);
         return new Vector3(x, y, z) + transform.position;
     }
 
@@ -57,7 +57,7 @@ public class AsteroidManager : MonoBehaviour
 
         // Set the asteroid's size
         asteroid.transform.localScale = RandomSize();
-
+        asteroid.transform.parent = transform;
         
 
         // Add the asteroid to the list

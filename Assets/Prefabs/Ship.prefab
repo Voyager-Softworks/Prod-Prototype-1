@@ -416,6 +416,10 @@ MonoBehaviour:
   currentThrottle: 0
   strafeSpeed: 30
   rollSpeed: 8
+  isDampened: 0
+  dampeningTime: 1
+  minmaxLinearDampen: {x: 0, y: 1.5}
+  minmaxAngularDampen: {x: 0.5, y: 1}
   o_camera: {fileID: 0}
   o_hull: {fileID: 1727183194268762315}
   o_wings: {fileID: 6898881694508414718}

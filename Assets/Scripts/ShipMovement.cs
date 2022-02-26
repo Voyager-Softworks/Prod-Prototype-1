@@ -19,6 +19,11 @@ public class ShipMovement : MonoBehaviour
     public float strafeSpeed = 20.0f;
     public float rollSpeed = 5.0f;
 
+    public bool isDampened = false;
+    public float dampeningTime = 1.0f;
+    public Vector2 minmaxLinearDampen = new Vector2(0.0f, 1.5f);
+    public Vector2 minmaxAngularDampen = new Vector2(0.5f, 1.0f);
+
     public GameObject o_camera;
     public GameObject o_hull;
     public GameObject o_wings;
@@ -30,12 +35,16 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] private Transform t_shootspot;
     public GameObject p_bullet;
 
+    private Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
         //lock hide cursor 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        rb = GetComponent<Rigidbody>();
 
         //enable actions
         movementAction.Enable();
@@ -74,31 +83,64 @@ public class ShipMovement : MonoBehaviour
 
         float trottle = trottleCurve.Evaluate(currentThrottle) * 50.0f;
         
-        GetComponent<Rigidbody>().AddForce(transform.forward * trottle);
+        rb.AddForce(transform.forward * trottle);
 
         //strafe calcs
         float strafe = movement.x * strafeSpeed;
         
-        GetComponent<Rigidbody>().AddForce(transform.right * strafe);
+        rb.AddForce(transform.right * strafe);
 
         //elevate calcs
         float elevate = movement.y * strafeSpeed;
 
-        GetComponent<Rigidbody>().AddForce(transform.up * elevate);
+        rb.AddForce(transform.up * elevate);
 
         //roll calcs
         float rollForce = roll * rollSpeed;
-        GetComponent<Rigidbody>().AddTorque(transform.forward * rollForce);
+        rb.AddTorque(transform.forward * rollForce);
 
-
+        CheckDampen();
     }
 
     public void ToggleDampen(InputAction.CallbackContext context) {
         Debug.Log("Dampener toggled");
         if (context.performed) {
-            GetComponent<Rigidbody>().drag = GetComponent<Rigidbody>().drag == 0.0f ? 1.5f : 0.0f;
-            GetComponent<Rigidbody>().angularDrag = GetComponent<Rigidbody>().angularDrag == 0.5f ? 1.0f : 0.5f;
+            isDampened = !isDampened;
         }
+    }
+
+    public void CheckDampen() {
+        //update linear drag
+        rb.drag = Mathf.Lerp(rb.drag, isDampened ? minmaxLinearDampen.y : minmaxLinearDampen.x, Time.deltaTime * dampeningTime);
+
+        //update angular drag
+        rb.angularDrag = Mathf.Lerp(rb.angularDrag, isDampened ? minmaxAngularDampen.y : minmaxAngularDampen.x, Time.deltaTime * dampeningTime);
+
+        //Boost Drag System:
+        float boost = boostAction.ReadValue<float>();
+        if (boost > 0.0f){
+            Vector3 velocity = rb.velocity;
+
+            //forward speed
+            float newZVel = Vector3.Project(velocity, transform.forward).magnitude;
+            if (newZVel <= 0.0f) {
+                newZVel = newZVel * (1 - Time.deltaTime * rb.drag);
+            }
+
+            //strafe speed
+            float newXVel = Vector3.Project(velocity, transform.right).magnitude;
+            newXVel = newXVel * (1 - Time.deltaTime * rb.drag);
+
+            //elevate speed
+            float newYVel = Vector3.Project(velocity, transform.up).magnitude;
+            newYVel = newYVel * (1 - Time.deltaTime * rb.drag);
+
+            Vector3 newVel = new Vector3(newXVel, newYVel, newZVel);
+
+            //un-project velocity back to world space
+            rb.velocity = transform.TransformDirection(newVel);
+        }
+
     }
 
     public void Looking() {
@@ -113,13 +155,13 @@ public class ShipMovement : MonoBehaviour
         look.y *= -1;
 
         //torque ship towards look
-        GetComponent<Rigidbody>().AddTorque(transform.up * look.x * 0.25f);
-        GetComponent<Rigidbody>().AddTorque(transform.right * look.y * 0.25f);
+        rb.AddTorque(transform.up * look.x * 0.25f);
+        rb.AddTorque(transform.right * look.y * 0.25f);
     }
 
     public void UpdateUI() {
         //get velocity
-        Vector3 velocity = GetComponent<Rigidbody>().velocity;
+        Vector3 velocity = rb.velocity;
 
         //get forward component of velocity
         float speed = Vector3.Project(velocity, transform.forward).magnitude;
@@ -137,7 +179,6 @@ public class ShipMovement : MonoBehaviour
         ui_throttleBar.GetComponent<Image>().color = currentThrottle > 0 ? niceGreen : niceRed;
 
         //update dampen text
-        bool isDampened = GetComponent<Rigidbody>().drag != 0.0f;
         ui_dampenText.text = isDampened ? "DAMPENED" : "UN-DAMPENED";
         ui_dampenText.fontStyle = isDampened ? FontStyles.Normal : FontStyles.Underline;
         ui_dampenText.color = isDampened ? niceGreen : niceRed - new Color(0, 0, 0, 0.5f);

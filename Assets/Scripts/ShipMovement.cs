@@ -81,7 +81,7 @@ public class ShipMovement : MonoBehaviour
         //throttle calcs
         currentThrottle = Mathf.Lerp(currentThrottle, trottleCurve.Evaluate(movement.z), Time.deltaTime * 5.0f);
 
-        float trottle = trottleCurve.Evaluate(currentThrottle) * 50.0f;
+        float trottle = trottleCurve.Evaluate(currentThrottle) * 50.0f * (1 + boost);
         
         rb.AddForce(transform.forward * trottle);
 
@@ -118,27 +118,35 @@ public class ShipMovement : MonoBehaviour
 
         //Boost Drag System:
         float boost = boostAction.ReadValue<float>();
+        Debug.Log("Boost: " + boost);
         if (boost > 0.0f){
             Vector3 velocity = rb.velocity;
 
+            //project velocity into local space
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+
+            float boostDrag = 1.5f;
+
             //forward speed
-            float newZVel = Vector3.Project(velocity, transform.forward).magnitude;
+            float newZVel = localVelocity.z;
             if (newZVel <= 0.0f) {
-                newZVel = newZVel * (1 - Time.deltaTime * rb.drag);
+                newZVel = newZVel * (1 - Time.deltaTime * boostDrag);
             }
 
             //strafe speed
-            float newXVel = Vector3.Project(velocity, transform.right).magnitude;
-            newXVel = newXVel * (1 - Time.deltaTime * rb.drag);
+            float newXVel = localVelocity.x;
+            newXVel = newXVel * (1 - Time.deltaTime * boostDrag);
 
             //elevate speed
-            float newYVel = Vector3.Project(velocity, transform.up).magnitude;
-            newYVel = newYVel * (1 - Time.deltaTime * rb.drag);
+            float newYVel = localVelocity.y;
+            newYVel = newYVel * (1 - Time.deltaTime * boostDrag);
 
             Vector3 newVel = new Vector3(newXVel, newYVel, newZVel);
 
             //un-project velocity back to world space
-            rb.velocity = transform.TransformDirection(newVel);
+            newVel = transform.TransformDirection(newVel);
+
+            rb.velocity = newVel;
         }
 
     }

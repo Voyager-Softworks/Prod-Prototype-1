@@ -29,6 +29,9 @@ public class HomingMissile : MonoBehaviour
         }
         else
         {
+            if(secondsOfFuel > 0.0f)
+            {
+                secondsOfFuel -= Time.deltaTime;
             if (targetLock != null)
             {
                 Vector3 targetDir = (targetLock.position - transform.position).normalized;
@@ -36,9 +39,11 @@ public class HomingMissile : MonoBehaviour
                     targetDir += (transform.forward* Vector3.Dot(targetDir, GetComponent<Rigidbody>().velocity))/2.0f;
                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetDir), turnSpeed * Time.deltaTime);
                     
-                    GetComponent<Rigidbody>().AddForce(transform.forward * thrust);
+                    
                     
                 
+            }
+            GetComponent<Rigidbody>().AddForce(transform.forward * thrust);
             }
         }
     }

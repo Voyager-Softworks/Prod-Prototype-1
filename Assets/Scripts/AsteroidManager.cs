@@ -19,7 +19,8 @@ public class AsteroidManager : MonoBehaviour
 
     public float asteroidFieldHeight = 100000.0f;
 
-    List<GameObject> asteroids = new List<GameObject>();
+    [HideInInspector]
+    public List<GameObject> asteroids = new List<GameObject>();
 
     // Generate a random position within the asteroid field
     Vector3 RandomPosition()
@@ -67,10 +68,24 @@ public class AsteroidManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    public void GenerateAsteroids()
+    {
         for (int i = 0; i < asteroidCount; i++)
         {
             SpawnAsteroid();
         }
+    }
+
+    public void ClearAsteroids()
+    {
+        foreach (GameObject asteroid in asteroids)
+        {
+            DestroyImmediate(asteroid);
+        }
+        asteroids.Clear();
     }
 
     // Update is called once per frame

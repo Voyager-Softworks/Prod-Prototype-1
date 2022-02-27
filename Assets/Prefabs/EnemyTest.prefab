@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 249907887}
   - component: {fileID: 249907890}
   - component: {fileID: 5984703992515723147}
+  - component: {fileID: 815883400260847303}
   m_Layer: 0
   m_Name: EnemyTest
   m_TagString: Enemy
@@ -179,7 +180,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 815883400260847303}
+        m_TargetAssemblyTypeName: SFX_Effect, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   startingHealth: 100
 --- !u!114 &249907890
 MonoBehaviour:
@@ -223,6 +236,30 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 4
   m_Center: {x: 0, y: 0, z: -2.22}
+--- !u!114 &815883400260847303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4066780704796177863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13db967582573f387bd4f16f5bedad59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_noiseSettingsData: {fileID: 0}
+  m_playOnAwake: 0
+  m_loop: 0
+  m_effectsList:
+  - m_type: 6
+    m_waitDuration: 0
+    m_clip: {fileID: 0}
+    m_source: {fileID: 0}
+    m_particle: {fileID: 0}
+    m_screenShakeAmplitude: {x: 0, y: 0}
+    m_prefab: {fileID: 8094342784708193928, guid: 762719e74aca57e42b1b630f0ae73cbb, type: 3}
+    m_controllerRumbleSpeed: {x: 0, y: 0}
 --- !u!1 &5520208009482933166
 GameObject:
   m_ObjectHideFlags: 0

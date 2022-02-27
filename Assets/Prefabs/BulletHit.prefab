@@ -46,15 +46,15 @@ MonoBehaviour:
   m_Version: 2
   m_Material: {fileID: 2100000, guid: 1417ed1cbd05837d38a0791238514d3b, type: 2}
   m_DrawDistance: 1000
-  m_FadeScale: 0.9
+  m_FadeScale: 0.918
   m_StartAngleFade: 180
   m_EndAngleFade: 180
   m_UVScale: {x: 1, y: 1}
   m_UVBias: {x: 0, y: 0}
   m_AffectsTransparency: 0
   m_DecalLayerMask: 1
-  m_Offset: {x: 0, y: 0, z: 0.5}
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Offset: {x: 0, y: 0, z: 0.3}
+  m_Size: {x: 0.6, y: 0.6, z: 0.6}
   m_FadeFactor: 1
 --- !u!1 &4076534454184252194
 GameObject:

@@ -92,7 +92,7 @@ public class LockOnTargeter : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 500.0f))
         {
-            if (hit.transform.tag == "Enemy")
+            if (hit.transform.tag == "Enemy" && hit.collider.isTrigger)
             {
                 lockonTarget = hit.transform;
                 reticle.sprite = lockReticle;
@@ -122,7 +122,7 @@ public class LockOnTargeter : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 500.0f))
         {
-            if (hit.transform.tag == "Enemy")
+            if (hit.transform.tag == "Enemy" && hit.collider.isTrigger)
             {
                 return true;
             }

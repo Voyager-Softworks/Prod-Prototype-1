@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
 
     public float startingHealth = 100f;
 
+    bool isDead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,8 @@ public class EnemyHealth : MonoBehaviour
     }
 
     public void TakeDamage(float _damage){
+        if (isDead) return;
+
         startingHealth -= _damage;
         if(startingHealth <= 0){
             Die();
@@ -34,7 +38,11 @@ public class EnemyHealth : MonoBehaviour
     }
 
     public void Die(){
-        Destroy(gameObject);
+        if (isDead) return;
+
+        isDead = true;
         onDeath.Invoke();
+        Destroy(gameObject, 1.0f);
+        
     }
 }

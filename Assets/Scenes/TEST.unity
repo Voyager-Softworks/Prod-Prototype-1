@@ -11648,7 +11648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 1684a9f2cbac2944db3424815bc2f04b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23933,7 +23933,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 10000
   field of view: 60
   orthographic: 0
@@ -24987,9 +24987,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e17dc352cb22b569f1837e7efaa28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalReticle: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  hoverReticle: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  lockReticle: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  normalReticle: {fileID: 21300000, guid: 1684a9f2cbac2944db3424815bc2f04b, type: 3}
+  hoverReticle: {fileID: 21300000, guid: 7cbf497cffd64cf4d9e50ca149c6ef90, type: 3}
+  lockReticle: {fileID: 21300000, guid: be909cf501e447942827565d1ddb6d3d, type: 3}
   reticle: {fileID: 441871866}
   lockonTarget: {fileID: 0}
   lockOnAction:
@@ -30126,14 +30126,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.16470589}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 9578cf642bfb9f14bbfd526354887aa8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -54859,6 +54859,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1418474955, guid: 769efd9715da4b542a230d7bfe19b97b, type: 3}
+      propertyPath: m_UpdateRate
+      value: 144
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149103053635, guid: 769efd9715da4b542a230d7bfe19b97b, type: 3}
       propertyPath: o_camera
       value: 
@@ -54923,25 +54927,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
-    - target: {fileID: 7035361782398995573, guid: 769efd9715da4b542a230d7bfe19b97b, type: 3}
-      propertyPath: clipSize
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7035361782398995574, guid: 769efd9715da4b542a230d7bfe19b97b, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: b795b3e851212314eaa414b33c78d8de, type: 3}
-    - target: {fileID: 7035361783309502172, guid: 769efd9715da4b542a230d7bfe19b97b, type: 3}
-      propertyPath: clipSize
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7035361783309502175, guid: 769efd9715da4b542a230d7bfe19b97b, type: 3}
-      propertyPath: m_Pitch
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7035361783309502175, guid: 769efd9715da4b542a230d7bfe19b97b, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: b795b3e851212314eaa414b33c78d8de, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 769efd9715da4b542a230d7bfe19b97b, type: 3}

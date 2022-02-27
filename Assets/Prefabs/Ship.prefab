@@ -422,7 +422,7 @@ MonoBehaviour:
   ui_throttleBar: {fileID: 0}
   ui_dampenText: {fileID: 0}
   t_shootspot: {fileID: 1721221790780519179}
-  p_bullet: {fileID: 1551724315568959203, guid: e111e08407831996abac08d14d75183b, type: 3}
+  p_bullet: {fileID: 1551724315568959203, guid: 67e53a291d8388c4dbc333096a1098e8, type: 3}
 --- !u!1 &3731716559881755132
 GameObject:
   m_ObjectHideFlags: 0

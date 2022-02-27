@@ -616,6 +616,15 @@ MonoBehaviour:
       m_Action: Boost
       m_Flags: 0
     m_Flags: 0
+  dampenerAction:
+    m_Name: Dampener
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f666dcce-8663-42b9-b869-39671e3f936f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   lookAction:
     m_Name: Look
     m_Type: 0
@@ -633,39 +642,24 @@ MonoBehaviour:
       m_Action: Look
       m_Flags: 0
     m_Flags: 0
-  forwardSpeed: 50
-  forwardSpeedCurve:
+  trottleCurve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  turnSpeed: 10
-  rollSpeed: 50
+  currentThrottle: 0
   strafeSpeed: 10
-  verticalSpeed: 10
-  maxSpeed: 10
-  minSpeed: 0
+  rollSpeed: 50
+  isDampened: 0
+  dampeningTime: 1
+  minmaxLinearDampen: {x: 0, y: 1.5}
+  minmaxAngularDampen: {x: 0.5, y: 1}
   o_camera: {fileID: 8067237363459890648}
   o_hull: {fileID: 7650333115345740}
   o_wings: {fileID: 5214818999802830201}
+  ui_speedometer: {fileID: 0}
+  ui_throttleBar: {fileID: 0}
+  ui_dampenText: {fileID: 0}
   t_shootspot: {fileID: 1149802636}
   p_bullet: {fileID: 4338947678430526462, guid: 36dab42f57634cb45bad645bd5a20c98, type: 3}

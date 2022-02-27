@@ -3528,7 +3528,7 @@ MonoBehaviour:
   ui_throttleBar: {fileID: 0}
   ui_dampenText: {fileID: 0}
   t_shootspot: {fileID: 710565858}
-  p_bullet: {fileID: 1551724315568959203, guid: 67e53a291d8388c4dbc333096a1098e8, type: 3}
+  p_bullet: {fileID: 1551724315568959203, guid: 031eee0da8525c84daf996bbd7d45062, type: 3}
 --- !u!95 &8442619334185364718
 Animator:
   serializedVersion: 3
@@ -5413,6 +5413,14 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 1551724315568959203, guid: 67e53a291d8388c4dbc333096a1098e8, type: 3}
+    - target: {fileID: 2865754492266226778, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
+      propertyPath: m_Pitch
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2865754492266226778, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2865754492266226779, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
       propertyPath: m_Name
       value: Wpn_MachineGun (1)
@@ -5491,6 +5499,14 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 1551724315568959203, guid: 67e53a291d8388c4dbc333096a1098e8, type: 3}
+    - target: {fileID: 2865754492266226778, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
+      propertyPath: m_Pitch
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2865754492266226778, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2865754492266226779, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
       propertyPath: m_Name
       value: Wpn_MachineGun

@@ -54867,6 +54867,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 684674672}
     - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: flySpeeds.roll
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
       propertyPath: ui_speedometer
       value: 
       objectReference: {fileID: 545737325}
@@ -54874,6 +54878,30 @@ PrefabInstance:
       propertyPath: ui_throttleBar
       value: 
       objectReference: {fileID: 1099860256}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: dodgeSpeeds.roll
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: flySpeeds.strafe
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: flySpeeds.elevate
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: flySpeeds.forward
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: dodgeSpeeds.strafe
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
+      propertyPath: dodgeSpeeds.forward
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1727183194268762315, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
       propertyPath: m_Name
       value: Ship

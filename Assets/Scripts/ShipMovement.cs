@@ -4,9 +4,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class ShipMovement : MonoBehaviour
 {
+    [Serializable]
+    struct v3 {
+        [SerializeField] public float forward;
+        [SerializeField] public float strafe;
+        [SerializeField] public float roll;
+    }
+
     public InputAction movementAction;
     public InputAction rollAction;
     public InputAction boostAction;
@@ -16,10 +24,10 @@ public class ShipMovement : MonoBehaviour
     public AnimationCurve trottleCurve;
     public float currentThrottle = 0.0f;
 
-    public float strafeSpeed = 20.0f;
-    public float rollSpeed = 5.0f;
+    [SerializeField] v3 flySpeeds;
+    [SerializeField] v3 dodgeSpeeds;
 
-    public bool isDampened = false;
+    public bool dodgeMode = false;
     public float dampeningTime = 1.0f;
     public Vector2 minmaxLinearDampen = new Vector2(0.0f, 1.5f);
     public Vector2 minmaxAngularDampen = new Vector2(0.5f, 1.0f);
@@ -78,25 +86,27 @@ public class ShipMovement : MonoBehaviour
         //boost val
         float boost = boostAction.ReadValue<float>();
 
+        v3 currentSpeeds = dodgeMode ? dodgeSpeeds : flySpeeds;
+
         //throttle calcs
         currentThrottle = Mathf.Lerp(currentThrottle, trottleCurve.Evaluate(movement.z), Time.deltaTime * 5.0f);
 
-        float trottle = trottleCurve.Evaluate(currentThrottle) * 50.0f * (1 + boost);
+        float trottle = trottleCurve.Evaluate(currentThrottle) * currentSpeeds.forward * (1 + boost);
         
         rb.AddForce(transform.forward * trottle);
 
         //strafe calcs
-        float strafe = movement.x * strafeSpeed;
+        float strafe = movement.x * currentSpeeds.strafe;
         
         rb.AddForce(transform.right * strafe);
 
         //elevate calcs
-        float elevate = movement.y * strafeSpeed;
+        float elevate = movement.y * currentSpeeds.strafe;
 
         rb.AddForce(transform.up * elevate);
 
         //roll calcs
-        float rollForce = roll * rollSpeed;
+        float rollForce = roll * currentSpeeds.roll;
         rb.AddTorque(transform.forward * rollForce);
 
         CheckDampen();
@@ -105,20 +115,19 @@ public class ShipMovement : MonoBehaviour
     public void ToggleDampen(InputAction.CallbackContext context) {
         Debug.Log("Dampener toggled");
         if (context.performed) {
-            isDampened = !isDampened;
+            dodgeMode = !dodgeMode;
         }
     }
 
     public void CheckDampen() {
         //update linear drag
-        rb.drag = Mathf.Lerp(rb.drag, isDampened ? minmaxLinearDampen.y : minmaxLinearDampen.x, Time.deltaTime * dampeningTime);
+        rb.drag = Mathf.Lerp(rb.drag, dodgeMode ? minmaxLinearDampen.y : minmaxLinearDampen.x, Time.deltaTime * dampeningTime);
 
         //update angular drag
-        rb.angularDrag = Mathf.Lerp(rb.angularDrag, isDampened ? minmaxAngularDampen.y : minmaxAngularDampen.x, Time.deltaTime * dampeningTime);
+        rb.angularDrag = Mathf.Lerp(rb.angularDrag, dodgeMode ? minmaxAngularDampen.y : minmaxAngularDampen.x, Time.deltaTime * dampeningTime);
 
         //Boost Drag System:
-        float boost = boostAction.ReadValue<float>();
-        if (boost > 0.0f){
+        if (!dodgeMode){
             Vector3 velocity = rb.velocity;
 
             //project velocity into local space
@@ -186,9 +195,9 @@ public class ShipMovement : MonoBehaviour
         ui_throttleBar.GetComponent<Image>().color = currentThrottle > 0 ? niceGreen : niceRed;
 
         //update dampen text
-        ui_dampenText.text = isDampened ? "DAMPENED" : "UN-DAMPENED";
-        ui_dampenText.fontStyle = isDampened ? FontStyles.Normal : FontStyles.Underline;
-        ui_dampenText.color = isDampened ? niceGreen : niceRed - new Color(0, 0, 0, 0.5f);
+        ui_dampenText.text = dodgeMode ? "DODGE MODE" : "FLY MODE";
+        ui_dampenText.fontStyle = dodgeMode ? FontStyles.Normal : FontStyles.Underline;
+        ui_dampenText.color = dodgeMode ? niceGreen : niceRed - new Color(0, 0, 0, 0.5f);
     }
 
     float lastShoot = 0f;

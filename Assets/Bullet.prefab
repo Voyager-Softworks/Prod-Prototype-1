@@ -62,6 +62,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPrefab: {fileID: 4076534454184252194, guid: a9cd3f032fcefdb259434991b059185e, type: 3}
+  decals:
+  - {fileID: 2100000, guid: d428db9ab453199ba8bbf2c9097802a4, type: 2}
+  - {fileID: 2100000, guid: 0f55da87eb38e5dda87793e12b806531, type: 2}
+  - {fileID: 2100000, guid: 1417ed1cbd05837d38a0791238514d3b, type: 2}
   lifetime: 20
 --- !u!1 &2076808862015418125
 GameObject:

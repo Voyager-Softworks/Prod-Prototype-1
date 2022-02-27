@@ -12,7 +12,7 @@ public class BonkNoise : MonoBehaviour
         if (collision.gameObject.tag == "EnemyBullet")
         {
             bonkSource.clip = damageClips[Random.Range(0, damageClips.Length)];
-            bonkSource.pitch = Random.Range(0.8f, 1.2f);
+            bonkSource.pitch = Random.Range(0.7f, 1.0f);
             bonkSource.Play();
         }
         else

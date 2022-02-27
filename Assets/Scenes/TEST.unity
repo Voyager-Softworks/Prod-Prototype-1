@@ -54854,10 +54854,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 559304344644551383, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: aimLeadMultiplier
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
       propertyPath: o_camera
       value: 
@@ -54867,10 +54863,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 684674672}
     - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: flySpeeds.roll
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
       propertyPath: ui_speedometer
       value: 
       objectReference: {fileID: 545737325}
@@ -54878,65 +54870,9 @@ PrefabInstance:
       propertyPath: ui_throttleBar
       value: 
       objectReference: {fileID: 1099860256}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: dodgeSpeeds.roll
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: flySpeeds.strafe
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: flySpeeds.elevate
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: flySpeeds.forward
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: dodgeSpeeds.strafe
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727183194268762312, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: dodgeSpeeds.forward
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 1727183194268762315, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
       propertyPath: m_Name
       value: Ship
-      objectReference: {fileID: 0}
-    - target: {fileID: 2129169074446520569, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: targetLock
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2129169074446520569, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: targetRigidbody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2129169074798181357, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: targetLock
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2129169074798181357, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: targetRigidbody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2129169075029737573, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: targetLock
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2129169075029737573, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: targetRigidbody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2129169075114757646, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: targetLock
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2129169075114757646, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: targetRigidbody
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2378846037226333497, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
       propertyPath: m_RootOrder
@@ -54980,22 +54916,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2378846037226333497, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2516169024862091102, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: aimLeadMultiplier
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2594034756497355696, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: aimLeadMultiplier
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6952739630392595518, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: aimLeadMultiplier
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653552038302709343, guid: 69a53d6e400ac334b84ec6088370a989, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

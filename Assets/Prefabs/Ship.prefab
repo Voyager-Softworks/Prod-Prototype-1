@@ -409,9 +409,15 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   currentThrottle: 0
-  strafeSpeed: 30
-  rollSpeed: 8
-  isDampened: 0
+  flySpeeds:
+    forward: 50
+    strafe: 30
+    roll: 8
+  dodgeSpeeds:
+    forward: 100
+    strafe: 75
+    roll: 12
+  dodgeMode: 0
   dampeningTime: 1
   minmaxLinearDampen: {x: 0, y: 1.5}
   minmaxAngularDampen: {x: 0.5, y: 1}
@@ -1029,7 +1035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8653552038302709330
 Transform:
   m_ObjectHideFlags: 0

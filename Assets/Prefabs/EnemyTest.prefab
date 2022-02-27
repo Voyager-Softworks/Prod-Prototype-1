@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8413478709323579221}
   - component: {fileID: 1400655083959901990}
   - component: {fileID: 2814627099924712175}
+  - component: {fileID: 262691334521460560}
   m_Layer: 0
   m_Name: wings
   m_TagString: Untagged
@@ -81,6 +82,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &262691334521460560
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350814854150055323}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -781299741371417448, guid: 2ca5cd2d4bf044443add00d91e526467, type: 3}
 --- !u!1 &4066780704796177863
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +107,7 @@ GameObject:
   - component: {fileID: 3691767715883233149}
   - component: {fileID: 3796941653013743761}
   - component: {fileID: 4066780704796177856}
+  - component: {fileID: 5282115522479222774}
   m_Layer: 0
   m_Name: EnemyTest
   m_TagString: Enemy
@@ -147,6 +163,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &5282115522479222774
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4066780704796177863}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.7
+  m_Center: {x: 0, y: 0, z: -2.43742}
 --- !u!1 &5520208009482933166
 GameObject:
   m_ObjectHideFlags: 0

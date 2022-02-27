@@ -21,6 +21,9 @@ public class ShipMovement : MonoBehaviour
     public InputAction dampenerAction;
     public InputAction lookAction;
 
+    public InputAction dashRightAction;
+    public InputAction dashLeftAction;
+
     public AnimationCurve trottleCurve;
     public float currentThrottle = 0.0f;
 
@@ -60,9 +63,15 @@ public class ShipMovement : MonoBehaviour
         rollAction.Enable();
         boostAction.Enable();
         lookAction.Enable();
+        dashRightAction.Enable();
+        dashLeftAction.Enable();
 
         //set up dampener
         dampenerAction.performed += ToggleDampen;
+
+        //dash actions
+        dashRightAction.performed += DashRight;
+        dashLeftAction.performed += DashLeft;
     }
 
     // Update is called once per frame
@@ -110,6 +119,23 @@ public class ShipMovement : MonoBehaviour
         rb.AddTorque(transform.forward * rollForce);
 
         CheckDampen();
+
+        GetComponent<Animator>().SetFloat("Forward", movement.z);
+        GetComponent<Animator>().SetFloat("Strafe", movement.x);
+    }
+
+    public void DashRight(InputAction.CallbackContext context) {
+        if (dodgeMode) {
+            rb.AddForce(transform.right * dodgeSpeeds.strafe, ForceMode.Impulse);
+            GetComponent<Animator>().SetTrigger("DashRight");
+        }
+    }
+
+    public void DashLeft(InputAction.CallbackContext context) {
+        if (dodgeMode) {
+            rb.AddForce(-transform.right * dodgeSpeeds.strafe, ForceMode.Impulse);
+            GetComponent<Animator>().SetTrigger("DashLeft");
+        }
     }
 
     public void ToggleDampen(InputAction.CallbackContext context) {

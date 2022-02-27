@@ -107,12 +107,12 @@ GameObject:
   - component: {fileID: 8650493859264370565}
   - component: {fileID: 1727183194268762312}
   m_Layer: 0
-  m_Name: Ship
+  m_Name: OLDShip
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2378846037226333497
 Transform:
   m_ObjectHideFlags: 0

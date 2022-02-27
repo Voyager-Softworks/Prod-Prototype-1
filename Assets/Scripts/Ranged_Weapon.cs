@@ -14,6 +14,17 @@ public class Ranged_Weapon : MonoBehaviour
     protected int currentMuzzle;
 
     public float projectileSpeed;
+
+    protected Animator anim;
+
+    void Start()
+    {
+        currentAmmo = clipSize;
+        firingTimer = 0.0f;
+        reloadTimer = 0.0f;
+        currentMuzzle = 0;
+        anim = GetComponentInChildren<Animator>();
+    }
     public void TryShoot()
     {
         if (currentAmmo > 0)

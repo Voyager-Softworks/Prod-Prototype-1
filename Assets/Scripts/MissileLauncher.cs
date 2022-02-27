@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile_Weapon : Ranged_Weapon, ITargetLockWeapon
+public class MissileLauncher : Ranged_Weapon, ITargetLockWeapon
 {
     public GameObject projectilePrefab;
     public AudioSource fireSource;
-    
+
     public Transform targetLock;
 
     public void Lock(Transform target)
@@ -18,6 +18,15 @@ public class Projectile_Weapon : Ranged_Weapon, ITargetLockWeapon
     {
         targetLock = null;
     }
+
+    void Start()
+    {
+        if(transform.parent.tag == "Player")
+        {
+            FindObjectOfType<LockOnTargeter>().RegisterLockOnListener(this);
+        }
+    }
+    
     public override void Fire()
     {
         GameObject projectile = Instantiate(projectilePrefab, muzzlePositions[currentMuzzle].position, muzzlePositions[currentMuzzle].rotation);
@@ -27,6 +36,7 @@ public class Projectile_Weapon : Ranged_Weapon, ITargetLockWeapon
         {
             anim.SetTrigger("Fire");
         }
-        Destroy(projectile, 5.0f);
+        projectile.GetComponent<HomingMissile>().targetLock = targetLock;
+        
     }
 }

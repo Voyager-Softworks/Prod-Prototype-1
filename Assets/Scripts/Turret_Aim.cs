@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret_Aim : MonoBehaviour
+public class Turret_Aim : MonoBehaviour, ITargetLockWeapon
 {
 
     public Transform rotatingPart;
@@ -17,10 +17,26 @@ public class Turret_Aim : MonoBehaviour
 
     public Ranged_Weapon weapon;
 
+    public void Lock(Transform target)
+    {
+        targetLock = target;
+        targetRigidbody = target.GetComponent<Rigidbody>();
+    }
+
+    public void Unlock()
+    {
+        targetLock = null;
+        targetRigidbody = null;
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
+        if(transform.parent.tag == "Player")
+        {
+            FindObjectOfType<LockOnTargeter>().RegisterLockOnListener(this);
+        }
         
     }
 
@@ -36,7 +52,7 @@ public class Turret_Aim : MonoBehaviour
         if (targetLock != null && targetRigidbody != null)
         {
             Vector3 targetDir = (targetLock.position+ (targetRigidbody.velocity * ((targetLock.position-rotatingPart.position).magnitude/weapon.projectileSpeed))) - rotatingPart.position;
-            float angle = Vector3.Angle(targetDir, this.transform.up);
+            float angle = Vector3.Angle(targetDir, this.transform.forward);
             if (angle < maxRotateAngle)
             {
                 targetDir.Normalize();

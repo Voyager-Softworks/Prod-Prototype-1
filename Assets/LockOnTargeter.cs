@@ -80,6 +80,7 @@ public class LockOnTargeter : MonoBehaviour
                     {
                         wpn.Unlock();
                     }
+                    reticle.sprite = normalReticle;
                 }
                 break;
         }

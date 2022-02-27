@@ -95,6 +95,7 @@ public class LockOnTargeter : MonoBehaviour
             {
                 lockonTarget = hit.transform;
                 reticle.sprite = lockReticle;
+                currentState = ReticleState.Locked;
                 foreach (ITargetLockWeapon wpn in weapons)
                     {
                         wpn.Lock(lockonTarget);
@@ -104,12 +105,14 @@ public class LockOnTargeter : MonoBehaviour
             {
                 lockonTarget = null;
                 reticle.sprite = normalReticle;
+                currentState = ReticleState.Normal;
             }
         }
         else
         {
             lockonTarget = null;
             reticle.sprite = normalReticle;
+            currentState = ReticleState.Normal;
         }
     }
 

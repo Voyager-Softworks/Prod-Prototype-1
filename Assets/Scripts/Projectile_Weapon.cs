@@ -13,7 +13,13 @@ public class Projectile_Weapon : Ranged_Weapon, ITargetLockWeapon
     {
         targetLock = target;
     }
-
+    void Start()
+    {
+        if(transform.parent.tag == "Player")
+        {
+            FindObjectOfType<LockOnTargeter>().RegisterLockOnListener(this);
+        }
+    }
     public void Unlock()
     {
         targetLock = null;

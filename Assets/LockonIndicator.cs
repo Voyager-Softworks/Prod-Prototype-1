@@ -15,22 +15,23 @@ public class LockonIndicator : MonoBehaviour, ITargetLockWeapon
     public void Lock(Transform target)
     {
         lockonTarget = target;
-        indicator.SetActive(true);
+        
     }
 
     public void Unlock()
     {
         lockonTarget = null;
-        indicator.SetActive(false);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.LookRotation(lockonTarget.position - transform.position);
+
         if (lockonTarget != null)
         {
             indicator.SetActive(true);
+            transform.rotation = Quaternion.LookRotation(lockonTarget.position - transform.position);
         }
         else
         {

@@ -7,9 +7,11 @@ public class SpaceshipNavigationAI : MonoBehaviour
     Vector3 flightVector;
     public Transform targetPosition;
 
-    
+    Rigidbody rb;
 
     public float avoidanceRange;
+
+    public float thrust;
 
     //Set Flight Vector
     void SetFlightVector()
@@ -77,7 +79,7 @@ public class SpaceshipNavigationAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -87,7 +89,7 @@ public class SpaceshipNavigationAI : MonoBehaviour
         AvoidObstacles();
         RotateToFlightVector();
         //Move forward
-        transform.position += transform.forward * Time.deltaTime * 20.0f;
+        rb.AddForce(transform.forward * Time.deltaTime * thrust);
     }
 
     void OnDrawGizmos()

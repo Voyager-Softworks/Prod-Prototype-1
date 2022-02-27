@@ -5409,6 +5409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2865754492266226777, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 1551724315568959203, guid: 67e53a291d8388c4dbc333096a1098e8, type: 3}
     - target: {fileID: 2865754492266226779, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
       propertyPath: m_Name
       value: Wpn_MachineGun (1)
@@ -5483,6 +5487,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2865754492266226777, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 1551724315568959203, guid: 67e53a291d8388c4dbc333096a1098e8, type: 3}
     - target: {fileID: 2865754492266226779, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
       propertyPath: m_Name
       value: Wpn_MachineGun

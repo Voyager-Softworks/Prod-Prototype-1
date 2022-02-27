@@ -5142,8 +5142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93779af86b2fec7589bed410e4cd216a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 1000
-  turnSpeed: 20
+  thrust: 800
+  turnSpeed: 30
   secondsOfFuel: 20
   targetLock: {fileID: 0}
   thrusterDelay: 1
@@ -5156,7 +5156,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7461583901501038898}
   serializedVersion: 2
-  m_Mass: 30
+  m_Mass: 10
   m_Drag: 2
   m_AngularDrag: 0
   m_UseGravity: 1

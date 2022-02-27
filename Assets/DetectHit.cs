@@ -22,6 +22,7 @@ public class DetectHit : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
+        Debug.Log("Collision detected");
         foreach(string tag in tagsToDetect){
             if(other.gameObject.tag == tag){
                 onHit.Invoke();

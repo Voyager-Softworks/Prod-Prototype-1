@@ -89,7 +89,7 @@ public class SpaceshipNavigationAI : MonoBehaviour
         AvoidObstacles();
         RotateToFlightVector();
         //Move forward
-        rb.AddForce(transform.forward * Time.deltaTime * thrust);
+        rb.velocity = (transform.forward * Time.deltaTime * thrust);
     }
 
     void OnDrawGizmos()

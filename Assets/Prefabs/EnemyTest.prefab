@@ -107,7 +107,8 @@ GameObject:
   - component: {fileID: 3691767715883233149}
   - component: {fileID: 3796941653013743761}
   - component: {fileID: 4066780704796177856}
-  - component: {fileID: 5282115522479222774}
+  - component: {fileID: 249907887}
+  - component: {fileID: 249907890}
   m_Layer: 0
   m_Name: EnemyTest
   m_TagString: Enemy
@@ -163,19 +164,51 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &5282115522479222774
-SphereCollider:
+--- !u!114 &249907887
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4066780704796177863}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.7
-  m_Center: {x: 0, y: 0, z: -2.43742}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc112229bbd3ee343b1460cccb3d6eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  startingHealth: 100
+--- !u!114 &249907890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4066780704796177863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839839bc008029044b6841f0b424f22e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagsToDetect:
+  - PlayerBullet
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 249907887}
+        m_TargetAssemblyTypeName: EnemyHealth, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 20
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5520208009482933166
 GameObject:
   m_ObjectHideFlags: 0

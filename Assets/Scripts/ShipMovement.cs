@@ -118,7 +118,6 @@ public class ShipMovement : MonoBehaviour
 
         //Boost Drag System:
         float boost = boostAction.ReadValue<float>();
-        Debug.Log("Boost: " + boost);
         if (boost > 0.0f){
             Vector3 velocity = rb.velocity;
 
@@ -198,8 +197,6 @@ public class ShipMovement : MonoBehaviour
     public void TESTShoot() {
         if (Mouse.current.leftButton.isPressed && Time.time - lastShoot > shootDelay) {
             lastShoot = Time.time;
-
-            Debug.Log("Shoot");
 
             //instantiate bullet
             GameObject bullet = Instantiate(p_bullet, t_shootspot.position, t_shootspot.rotation);

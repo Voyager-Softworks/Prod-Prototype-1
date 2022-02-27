@@ -12,6 +12,8 @@ public class HomingMissile : MonoBehaviour
 
     public float thrusterDelay = 0.5f;
     float thrusterTimer = 0.0f;
+
+    public GameObject explosionPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,5 +41,21 @@ public class HomingMissile : MonoBehaviour
                 
             }
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            // Do damage to player
+        }
+        else if(collision.gameObject.tag == "Enemy")
+        {
+            // Do damage to enemy
+        }
+        //spawn explosion prefab
+        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.FromToRotation(Vector3.up, collision.contacts[0].normal) );
+        explosion.transform.parent = collision.transform;
+        Destroy(gameObject);
     }
 }

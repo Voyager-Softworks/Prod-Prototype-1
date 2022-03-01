@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  possibleLocations: 00000000
   isEquipped: 0
   _hardpointManager: {fileID: 0}
 --- !u!1 &6361544098542746319

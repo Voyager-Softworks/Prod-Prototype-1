@@ -182,22 +182,23 @@ MonoBehaviour:
     m_Flags: 0
   hardpoints:
   - hardpoint: {fileID: 260156475}
-    type: 2
+    location: 1
     equipped: {fileID: 0}
   - hardpoint: {fileID: 618187916}
-    type: 1
+    location: 0
     equipped: {fileID: 0}
   - hardpoint: {fileID: 2140569635}
-    type: 0
+    location: 0
     equipped: {fileID: 0}
   - hardpoint: {fileID: 1181212117}
-    type: 1
+    location: 0
     equipped: {fileID: 0}
   - hardpoint: {fileID: 1226666225}
-    type: 0
+    location: 0
     equipped: {fileID: 0}
   equipables: []
   _canEquipText: {fileID: 0}
+  _currentEquipText: {fileID: 0}
   _hardpointList: {fileID: 0}
   selectedHardpoint: 0
 --- !u!1 &260156474

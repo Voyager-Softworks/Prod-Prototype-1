@@ -10,10 +10,9 @@ using UnityEditor;
 
 public class HardpointManager : MonoBehaviour
 {
-    public enum HardpointType
+    public enum HardpointLocation
     {
-        side_left,
-        side_right,
+        side,
         bottom
     }
 
@@ -21,7 +20,7 @@ public class HardpointManager : MonoBehaviour
     public class Hardpoint
     {
         [SerializeField] public Transform hardpoint = null;
-        [SerializeField] public HardpointType type = HardpointType.side_left;
+        [SerializeField] public HardpointLocation location = HardpointLocation.side;
         [SerializeField] public Equipable equipped = null;
     }
 
@@ -34,6 +33,7 @@ public class HardpointManager : MonoBehaviour
     [SerializeField] public List<Equipable> equipables = new List<Equipable>();
 
     public TextMeshProUGUI _canEquipText;
+    public TextMeshProUGUI _currentEquipText;
     public HardpointList _hardpointList;
     private Equipable nearestEquipable = null;
     public int selectedHardpoint = 0;
@@ -90,13 +90,24 @@ public class HardpointManager : MonoBehaviour
     public void UpdateUI(){
         CheckEquipables();
 
+        if (hardpoints[selectedHardpoint].equipped != null)
+        {
+            _currentEquipText.text = hardpoints[selectedHardpoint].equipped.name;
+        }
+        else
+        {
+            _currentEquipText.text = "NONE SELECTED";
+        }
+
         //loop though hardpointlist and update icon colors
         int i = 0;
         foreach (HardpointList.HardpointItem entry in _hardpointList.hardpointItems)
         {
+            entry.number.color = Color.red;
+
             if (i == selectedHardpoint)
             {
-                entry.bg.color = Color.red;
+                entry.bg.color = Color.yellow;
             }
             else{
                 entry.bg.color = Color.white;
@@ -110,6 +121,15 @@ public class HardpointManager : MonoBehaviour
             {
                 entry.icon.color = Color.black;
             }
+
+            if (nearestEquipable != null) {
+                if (nearestEquipable.possibleLocations.Contains(hardpoints[i].location)){
+                    entry.number.color = Color.green;
+                }
+            }
+
+
+
             i++;
         }
     }
@@ -174,6 +194,11 @@ public class HardpointManager : MonoBehaviour
 
     public void TryEquip(Equipable _equipable, int index){
         if (index < 0 || index >= hardpoints.Count)
+        {
+            return;
+        }
+
+        if (!_equipable.possibleLocations.Contains(hardpoints[index].location))
         {
             return;
         }

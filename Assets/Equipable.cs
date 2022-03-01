@@ -11,6 +11,7 @@ public class Equipable : MonoBehaviour
     }
 
     public EquipableType type = EquipableType.rangedWeapon;
+    public List<HardpointManager.HardpointLocation> possibleLocations = new List<HardpointManager.HardpointLocation>();
     public bool isEquipped = false;
 
     public HardpointManager _hardpointManager;

@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 6625575977024098526}
   - component: {fileID: 5816705217903872613}
   - component: {fileID: 5816705217903872614}
+  - component: {fileID: 162709416}
   m_Layer: 0
   m_Name: Wpn_MainBattery
   m_TagString: Untagged
@@ -410,7 +411,7 @@ MonoBehaviour:
   - {fileID: 2957092821381805443}
   - {fileID: 2957092820215057284}
   projectileSpeed: 200
-  projectilePrefab: {fileID: 1551724315568959203, guid: e111e08407831996abac08d14d75183b, type: 3}
+  projectilePrefab: {fileID: 1551724315568959203, guid: 67e53a291d8388c4dbc333096a1098e8, type: 3}
   fireSource: {fileID: 5816705217903872614}
   targetLock: {fileID: 0}
 --- !u!82 &5816705217903872614
@@ -509,6 +510,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &162709416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816705217903872612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3499ede6d239794499938c93c4048546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  isEquipped: 0
+  _hardpointManager: {fileID: 0}
 --- !u!1 &6845690082652060464
 GameObject:
   m_ObjectHideFlags: 0

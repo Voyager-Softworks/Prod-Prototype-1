@@ -80,7 +80,7 @@ public class ShipMovement : MonoBehaviour
         Movement();
         Looking();
 
-        TESTShoot();
+        //TESTShoot();
 
         //update UI
         UpdateUI();
@@ -121,7 +121,7 @@ public class ShipMovement : MonoBehaviour
         CheckDampen();
 
         GetComponent<Animator>().SetFloat("Forward", movement.z);
-        GetComponent<Animator>().SetFloat("Strafe", movement.x);
+        //GetComponent<Animator>().SetFloat("Strafe", movement.x);
     }
 
     public void DashRight(InputAction.CallbackContext context) {

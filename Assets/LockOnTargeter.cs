@@ -14,6 +14,11 @@ public class LockOnTargeter : MonoBehaviour
 
     List<ITargetLockWeapon> weapons = new List<ITargetLockWeapon>();
 
+    public AudioSource source;
+
+    public AudioClip lockOnSound;
+    public AudioClip lockOffSound;
+
     public void RegisterLockOnListener(ITargetLockWeapon wpn)
     {
         weapons.Add(wpn);
@@ -44,6 +49,7 @@ public class LockOnTargeter : MonoBehaviour
             {
                 currentState = ReticleState.Locked;
                 CheckForLockon();
+                source.PlayOneShot(lockOnSound);
             }
             
         }
@@ -80,6 +86,7 @@ public class LockOnTargeter : MonoBehaviour
                     {
                         wpn.Unlock();
                     }
+                    source.PlayOneShot(lockOffSound);
                     reticle.sprite = normalReticle;
                 }
                 break;

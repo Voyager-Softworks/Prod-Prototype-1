@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 2865754492266226776}
   - component: {fileID: 2865754492266226777}
   - component: {fileID: 2865754492266226778}
+  - component: {fileID: 513527139}
   m_Layer: 0
   m_Name: Wpn_MachineGun
   m_TagString: Untagged
@@ -161,8 +162,9 @@ MonoBehaviour:
   muzzlePositions:
   - {fileID: 2865754490242806921}
   projectileSpeed: 125
-  projectilePrefab: {fileID: 1551724315568959203, guid: e111e08407831996abac08d14d75183b, type: 3}
+  projectilePrefab: {fileID: 1551724315568959203, guid: 67e53a291d8388c4dbc333096a1098e8, type: 3}
   fireSource: {fileID: 2865754492266226778}
+  targetLock: {fileID: 0}
 --- !u!82 &2865754492266226778
 AudioSource:
   m_ObjectHideFlags: 0
@@ -259,6 +261,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &513527139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2865754492266226779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3499ede6d239794499938c93c4048546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  isEquipped: 0
+  _hardpointManager: {fileID: 0}
 --- !u!1 &3099592175811239811
 GameObject:
   m_ObjectHideFlags: 0

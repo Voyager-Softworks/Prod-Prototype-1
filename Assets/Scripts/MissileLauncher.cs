@@ -21,10 +21,10 @@ public class MissileLauncher : Ranged_Weapon, ITargetLockWeapon
 
     void Start()
     {
-        if(transform.parent.tag == "Player")
-        {
-            FindObjectOfType<LockOnTargeter>().RegisterLockOnListener(this);
-        }
+        // if(transform.parent && transform.parent.tag == "Player")
+        // {
+        //     FindObjectOfType<LockOnTargeter>().RegisterLockOnListener(this);
+        // }
     }
     
     public override void Fire()

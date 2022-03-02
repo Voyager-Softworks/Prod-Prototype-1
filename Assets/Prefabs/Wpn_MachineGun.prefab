@@ -140,6 +140,8 @@ MonoBehaviour:
   rotatingPart: {fileID: 2328235645108422787}
   targetLock: {fileID: 0}
   targetRigidbody: {fileID: 0}
+  doAutoShoot: 0
+  doAutoAim: 1
   rotateSpeed: 10
   aimLeadMultiplier: 10
   maxRotateAngle: 110

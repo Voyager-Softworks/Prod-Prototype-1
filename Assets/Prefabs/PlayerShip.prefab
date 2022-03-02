@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 62527277}
   m_Layer: 0
   m_Name: HARDPOINTS
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,6 +214,7 @@ MonoBehaviour:
     location: 0
     equipped: {fileID: 0}
   equipables: []
+  _lockOnTargeter: {fileID: 0}
   _canEquipText: {fileID: 0}
   _currentEquipText: {fileID: 0}
   _hardpointList: {fileID: 0}
@@ -230,7 +231,7 @@ GameObject:
   - component: {fileID: 260156475}
   m_Layer: 0
   m_Name: 0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,7 +291,7 @@ GameObject:
   - component: {fileID: 618187916}
   m_Layer: 0
   m_Name: 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,7 +351,7 @@ GameObject:
   - component: {fileID: 1181212117}
   m_Layer: 0
   m_Name: 3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,7 +381,7 @@ GameObject:
   - component: {fileID: 1226666225}
   m_Layer: 0
   m_Name: 4
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -941,7 +942,7 @@ GameObject:
   - component: {fileID: 2140569635}
   m_Layer: 0
   m_Name: 2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

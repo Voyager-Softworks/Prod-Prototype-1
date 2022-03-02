@@ -9,6 +9,8 @@ public class Turret_Aim : MonoBehaviour, ITargetLockWeapon
     
     public Transform targetLock;
     public Rigidbody targetRigidbody;
+    public bool doAutoShoot = false;
+    public bool doAutoAim = true;
     public float rotateSpeed;
 
     public float aimLeadMultiplier;
@@ -33,22 +35,38 @@ public class Turret_Aim : MonoBehaviour, ITargetLockWeapon
     // Start is called before the first frame update
     void Start()
     {
-        if(transform.parent.tag == "Player")
-        {
-            FindObjectOfType<LockOnTargeter>().RegisterLockOnListener(this);
-        }
+        // if(transform.parent && transform.parent.tag == "Player")
+        // {
+        //     FindObjectOfType<LockOnTargeter>().RegisterLockOnListener(this);
+        // }
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Aim()) weapon.TryShoot();
+        if(Aim() && doAutoShoot) weapon.TryShoot();
+    }
+
+    public void ToggleAutoShoot(){
+        SetAutoShoot(!doAutoShoot);
+    }
+    public void SetAutoShoot(bool value){
+        doAutoShoot = value;
+    }
+
+    public void ToggleAutoAim(){
+        SetAutoAim(!doAutoAim);
+    }
+    public void SetAutoAim(bool value){
+        doAutoAim = value;
     }
 
     //Aim towards the target if it is in range and the angle is not too large
     public bool Aim()
     {
+        if(!doAutoAim) return false;
+
         if (targetLock != null && targetRigidbody != null)
         {
             Vector3 targetDir = (targetLock.position+ (targetRigidbody.velocity * ((targetLock.position-rotatingPart.position).magnitude/weapon.projectileSpeed))) - rotatingPart.position;

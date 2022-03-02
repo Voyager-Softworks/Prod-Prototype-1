@@ -82,20 +82,19 @@ public class HardpointManager : MonoBehaviour
 
     public void UpdateLockon()
     {
-        if (_lockOnTargeter.lockonTarget != null)
+        
+        foreach (Hardpoint h in hardpoints)
         {
-            foreach (Hardpoint h in hardpoints)
+            if (h.equipped != null)
             {
-                if (h.equipped != null)
-                {
-                    ITargetLockWeapon[] lockon = h.equipped.GetComponents<ITargetLockWeapon>();
+                ITargetLockWeapon[] lockon = h.equipped.GetComponents<ITargetLockWeapon>();
 
-                    if (lockon.Length > 0)
+                if (lockon.Length > 0)
+                {
+                    foreach (ITargetLockWeapon wpn in lockon)
                     {
-                        foreach (ITargetLockWeapon wpn in lockon)
-                        {
-                            wpn.Lock(_lockOnTargeter.lockonTarget);
-                        }
+                        if (_lockOnTargeter.lockonTarget != null) wpn.Lock(_lockOnTargeter.lockonTarget);
+                        else wpn.Unlock();
                     }
                 }
             }

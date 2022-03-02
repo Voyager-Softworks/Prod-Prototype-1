@@ -58,5 +58,15 @@ public class Equipable : MonoBehaviour
 
         transform.parent = null;
         isEquipped = false;
+
+        ITargetLockWeapon[] lockon = GetComponents<ITargetLockWeapon>();
+
+        if (lockon.Length > 0)
+        {
+            foreach (ITargetLockWeapon wpn in lockon)
+            {
+                wpn.Unlock();
+            }
+        }
     }
 }

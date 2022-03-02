@@ -33,6 +33,8 @@ public class HardpointManager : MonoBehaviour
     [SerializeField] public List<Hardpoint> hardpoints = new List<Hardpoint>();
     [SerializeField] public List<Equipable> equipables = new List<Equipable>();
 
+    public LockOnTargeter _lockOnTargeter;
+
     public TextMeshProUGUI _canEquipText;
     public TextMeshProUGUI _currentEquipText;
     public HardpointList _hardpointList;
@@ -72,12 +74,35 @@ public class HardpointManager : MonoBehaviour
     void Update()
     {
         UpdateUI();
+        CheckFiring();
+        CheckUnequip();
+        UpdateLockon();
 
-        if (fireAction.ReadValue<float>() > 0)
+    }
+
+    public void UpdateLockon()
+    {
+        
+        foreach (Hardpoint h in hardpoints)
         {
-            TryFireSelected();
-        }
+            if (h.equipped != null)
+            {
+                ITargetLockWeapon[] lockon = h.equipped.GetComponents<ITargetLockWeapon>();
 
+                if (lockon.Length > 0)
+                {
+                    foreach (ITargetLockWeapon wpn in lockon)
+                    {
+                        if (_lockOnTargeter.lockonTarget != null) wpn.Lock(_lockOnTargeter.lockonTarget);
+                        else wpn.Unlock();
+                    }
+                }
+            }
+        }
+    }
+
+    private void CheckUnequip()
+    {
         if (unequipAction.ReadValue<float>() > 0 && nearestEquipable == null && hardpoints[selectedHardpoint].equipped != null)
         {
             unequipTimer += Time.deltaTime;
@@ -89,6 +114,14 @@ public class HardpointManager : MonoBehaviour
             }
         }
         else unequipTimer = 0.0f;
+    }
+
+    private void CheckFiring()
+    {
+        if (fireAction.ReadValue<float>() > 0)
+        {
+            TryFireSelected();
+        }
     }
 
     public void UpdateUI()

@@ -26,6 +26,7 @@ public class HardpointManager : MonoBehaviour
 
     public InputAction fireAction;
     public InputAction equipAction;
+    public InputAction unequipAction;
     public InputAction scrollAction;
     public List<InputAction> hardpointSelectActions = new List<InputAction>();
 
@@ -37,12 +38,15 @@ public class HardpointManager : MonoBehaviour
     public HardpointList _hardpointList;
     private Equipable nearestEquipable = null;
     public int selectedHardpoint = 0;
+    public float unequipTime = 1.0f;
+    private float unequipTimer = 0.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         fireAction.Enable();
         equipAction.Enable();
+        unequipAction.Enable();
         scrollAction.Enable();
         foreach (InputAction action in hardpointSelectActions)
         {
@@ -73,46 +77,36 @@ public class HardpointManager : MonoBehaviour
         {
             TryFireSelected();
         }
-    }
 
-    public void TryEquipNearest(InputAction.CallbackContext context){
-        if (context.performed)
+        if (unequipAction.ReadValue<float>() > 0 && nearestEquipable == null && hardpoints[selectedHardpoint].equipped != null)
         {
-            if (nearestEquipable != null)
+            unequipTimer += Time.deltaTime;
+
+            if (unequipTimer > unequipTime)
             {
-                TryEquip(nearestEquipable, selectedHardpoint);
+                TryUnequipHardpoint(selectedHardpoint);
+                unequipTimer = 0.0f;
             }
         }
-
-        
+        else unequipTimer = 0.0f;
     }
 
-    public void UpdateUI(){
+    public void UpdateUI()
+    {
         CheckEquipables();
+        DisplaySelected();
+        UpdateEquipmentUI();
+    }
 
-        if (hardpoints[selectedHardpoint].equipped != null)
-        {
-            _currentEquipText.text = hardpoints[selectedHardpoint].equipped.name;
-        }
-        else
-        {
-            _currentEquipText.text = "NONE SELECTED";
-        }
-
+    private void UpdateEquipmentUI()
+    {
         //loop though hardpointlist and update icon colors
         int i = 0;
         foreach (HardpointList.HardpointItem entry in _hardpointList.hardpointItems)
         {
             entry.number.color = Color.red;
+            entry.icon.transform.localScale = Vector3.one;
 
-            if (i == selectedHardpoint)
-            {
-                entry.bg.color = Color.yellow;
-            }
-            else{
-                entry.bg.color = Color.white;
-            }
-            
             if (hardpoints[i].equipped != null)
             {
                 entry.icon.color = Color.green;
@@ -122,39 +116,71 @@ public class HardpointManager : MonoBehaviour
                 entry.icon.color = Color.black;
             }
 
-            if (nearestEquipable != null) {
-                if (nearestEquipable.possibleLocations.Contains(hardpoints[i].location)){
+            if (nearestEquipable != null)
+            {
+                if (nearestEquipable.possibleLocations.Contains(hardpoints[i].location))
+                {
                     entry.number.color = Color.green;
                 }
             }
 
+            if (i == selectedHardpoint)
+            {
+                entry.bg.color = Color.yellow;
 
+                if (unequipTimer > 0.0f)
+                {
+                    entry.icon.color = Color.red;
+                    //shrink icon
+                    entry.icon.transform.localScale = new Vector3(1.0f, Mathf.Lerp(1.0f, 0.0f, unequipTimer/unequipTime), 1.0f);
+                }
+            }
+            else
+            {
+                entry.bg.color = Color.white;
+            }
 
             i++;
         }
     }
 
+    private void DisplaySelected()
+    {
+        if (hardpoints[selectedHardpoint].equipped != null)
+        {
+            _currentEquipText.text = hardpoints[selectedHardpoint].equipped.name;
+        }
+        else
+        {
+            _currentEquipText.text = "NONE SELECTED";
+        }
+    }
+
     public void ScrollHardpoints(InputAction.CallbackContext context){
+        int copySHP = selectedHardpoint;
+
         if (context.performed)
         {
             if (context.ReadValue<float>() < 0)
             {
-                selectedHardpoint--;
+                copySHP--;
             }
             else
             {
-                selectedHardpoint++;
+                copySHP++;
             }
 
-            if (selectedHardpoint < 0)
+            if (copySHP < 0)
             {
-                selectedHardpoint = hardpoints.Count - 1;
+                copySHP = hardpoints.Count - 1;
             }
-            else if (selectedHardpoint >= hardpoints.Count)
+            else if (copySHP >= hardpoints.Count)
             {
-                selectedHardpoint = 0;
+                copySHP = 0;
             }
         }
+
+        SelectHardpoint(copySHP);
     }
 
     private void SelectHardpoint(InputAction.CallbackContext context){
@@ -166,8 +192,9 @@ public class HardpointManager : MonoBehaviour
     }
 
     public void SelectHardpoint(int index){
+        unequipTimer = 0.0f;
         selectedHardpoint = index;
-            selectedHardpoint = Mathf.Clamp(selectedHardpoint, 0, hardpoints.Count - 1);
+        selectedHardpoint = Mathf.Clamp(selectedHardpoint, 0, hardpoints.Count - 1);
     }
 
     // private void TryFireSelected(InputAction.CallbackContext context){
@@ -192,6 +219,16 @@ public class HardpointManager : MonoBehaviour
         }
     }
 
+    private void TryEquipNearest(InputAction.CallbackContext context){
+        if (context.performed)
+        {
+            if (nearestEquipable != null)
+            {
+                TryEquip(nearestEquipable, selectedHardpoint);
+            }
+        }
+    }
+
     public void TryEquip(Equipable _equipable, int index){
         if (index < 0 || index >= hardpoints.Count)
         {
@@ -210,6 +247,14 @@ public class HardpointManager : MonoBehaviour
 
         hardpoints[index].equipped = _equipable;
         _equipable.Equip(hardpoints[index].hardpoint);
+    }
+
+    public void TryUnequipHardpoint(int index) {
+        if (hardpoints[index].equipped != null)
+        {
+            hardpoints[index].equipped.Unequip();
+            hardpoints[index].equipped = null;
+        }
     }
 
     private void CheckEquipables()

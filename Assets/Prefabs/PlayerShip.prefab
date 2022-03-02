@@ -82,6 +82,23 @@ MonoBehaviour:
       m_Action: Equip
       m_Flags: 0
     m_Flags: 0
+  unequipAction:
+    m_Name: Unequip
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7901674a-d7c2-4d0f-9707-f88b0ddaa578
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2f99841e-9750-4f8d-ad20-36634fdeabaf
+      m_Path: <Keyboard>/f
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Unequip
+      m_Flags: 0
+    m_Flags: 0
   scrollAction:
     m_Name: Scroll
     m_Type: 0
@@ -201,6 +218,7 @@ MonoBehaviour:
   _currentEquipText: {fileID: 0}
   _hardpointList: {fileID: 0}
   selectedHardpoint: 0
+  unequipTime: 1
 --- !u!1 &260156474
 GameObject:
   m_ObjectHideFlags: 0

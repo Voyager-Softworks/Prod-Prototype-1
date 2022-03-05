@@ -665,6 +665,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7321661419783889861, guid: 80a7b6846434dd248a643b5e1a1d345e, type: 3}
+      propertyPath: doAutoShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321661419783889861, guid: 80a7b6846434dd248a643b5e1a1d345e, type: 3}
       propertyPath: targetRigidbody
       value: 
       objectReference: {fileID: 0}

@@ -133,44 +133,50 @@ public class HardpointManager : MonoBehaviour
 
     private void UpdateEquipmentUI()
     {
+        Color c_black = new Color(0, 0, 0, 0.5f);
+        Color c_white = new Color(1, 1, 1, 0.25f);
+        Color c_red = new Color(1, 0, 0, 0.95f);
+        Color c_green = new Color(0, 1, 0, 0.95f);
+        Color c_yellow = new Color(1, 1, 0, 0.95f);
+
         //loop though hardpointlist and update icon colors
         int i = 0;
         foreach (HardpointList.HardpointItem entry in _hardpointList.hardpointItems)
         {
-            entry.number.color = Color.red;
+            entry.number.color = c_yellow;
             entry.icon.transform.localScale = Vector3.one;
 
             if (hardpoints[i].equipped != null)
             {
-                entry.icon.color = Color.green;
+                entry.icon.color = c_green;
             }
             else
             {
-                entry.icon.color = Color.black;
+                entry.icon.color = c_black;
             }
 
             if (nearestEquipable != null)
             {
                 if (nearestEquipable.possibleLocations.Contains(hardpoints[i].location))
                 {
-                    entry.number.color = Color.green;
+                    entry.number.color = c_green;
                 }
             }
 
             if (i == selectedHardpoint)
             {
-                entry.bg.color = Color.yellow;
+                entry.bg.color = c_white;
 
                 if (unequipTimer > 0.0f)
                 {
-                    entry.icon.color = Color.red;
+                    entry.icon.color = c_red;
                     //shrink icon
                     entry.icon.transform.localScale = new Vector3(1.0f, Mathf.Lerp(1.0f, 0.0f, unequipTimer/unequipTime), 1.0f);
                 }
             }
             else
             {
-                entry.bg.color = Color.white;
+                entry.bg.color = c_black;
             }
 
             i++;

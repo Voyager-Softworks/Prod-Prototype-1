@@ -2956,6 +2956,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100886855}
   m_Mesh: {fileID: 3010946912365197963, guid: b0e9f4f13ec68234dac7b13120e64159, type: 3}
+--- !u!114 &101407099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2233039238184689309, guid: d99ff4a5e2c48dc4e8ba4588f4fcc7ae, type: 3}
+  m_PrefabInstance: {fileID: 7512901083518458576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &101943946
 GameObject:
   m_ObjectHideFlags: 0
@@ -4994,6 +5005,10 @@ PrefabInstance:
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
+    - target: {fileID: 5848687265015973634, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
+      propertyPath: doAutoShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5848687265015973634, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
       propertyPath: targetRigidbody
       value: 
@@ -9825,6 +9840,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376159555}
   m_Mesh: {fileID: -6153995196899191083, guid: bf0924ad2d94a9145bab645b7429f90d, type: 3}
+--- !u!114 &377049886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2112644517736512606, guid: d99ff4a5e2c48dc4e8ba4588f4fcc7ae, type: 3}
+  m_PrefabInstance: {fileID: 7512901083518458576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &380783553
 GameObject:
   m_ObjectHideFlags: 0
@@ -14243,6 +14269,10 @@ PrefabInstance:
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
+    - target: {fileID: 5848687265015973634, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
+      propertyPath: doAutoShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5848687265015973634, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
       propertyPath: targetRigidbody
       value: 
@@ -29114,6 +29144,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 543450653626569211}
     - target: {fileID: 5848687265015973634, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
+      propertyPath: doAutoShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848687265015973634, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
       propertyPath: targetRigidbody
       value: 
       objectReference: {fileID: 919132149103053636}
@@ -38142,6 +38176,10 @@ PrefabInstance:
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
+    - target: {fileID: 5848687265015973634, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
+      propertyPath: doAutoShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5848687265015973634, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
       propertyPath: targetRigidbody
       value: 
@@ -52394,6 +52432,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 543450653626569211}
     - target: {fileID: 5848687265015973634, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
+      propertyPath: doAutoShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848687265015973634, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
       propertyPath: targetRigidbody
       value: 
       objectReference: {fileID: 919132149103053636}
@@ -53284,10 +53326,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70283601}
     m_Modifications:
-    - target: {fileID: 323107629917827634, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3691767715883233149, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53442,6 +53480,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
+    - target: {fileID: 7373822601794239666, guid: 769efd9715da4b542a230d7bfe19b97b, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 377049886}
+    - target: {fileID: 7373822601794239666, guid: 769efd9715da4b542a230d7bfe19b97b, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 101407099}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 769efd9715da4b542a230d7bfe19b97b, type: 3}
 --- !u!1001 &7512901083518458576

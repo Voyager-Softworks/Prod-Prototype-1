@@ -489,8 +489,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 249907887}
+        m_TargetAssemblyTypeName: EnemyHealth, Assembly-CSharp
+        m_MethodName: DropScrap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   startingHealth: 200
   healthBar: {fileID: 323107629917827634}
+  p_scrapPrefab: {fileID: 6965239626267420882, guid: 1f20a0304a2d3674fa2e6ecbaf75e7f4, type: 3}
+  m_scrapCount:
+    min: 0
+    max: 2
+  m_scrapValue:
+    min: 10
+    max: 20
 --- !u!114 &249907890
 MonoBehaviour:
   m_ObjectHideFlags: 0

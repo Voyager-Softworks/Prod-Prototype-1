@@ -28,8 +28,19 @@ public class ShipHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckForDeath();
+        CheckHealth();
+
         UpdateUI();
+    }
+
+    private void CheckHealth()
+    {
+        CheckForDeath();
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
     }
 
     private void CheckForDeath()
@@ -49,6 +60,14 @@ public class ShipHealth : MonoBehaviour
     public void UpdateUI(){
         healthBar.rectTransform.sizeDelta = new Vector2((currentHealth / maxHealth) * 500 - 510, healthBar.rectTransform.sizeDelta.y);
         healthText.text = (currentHealth / maxHealth * 100).ToString("0") + "%";
+    }
+
+    public void AddHealth(float _amount){
+        currentHealth += _amount;
+
+        if (currentHealth > maxHealth){
+            currentHealth = maxHealth;
+        }
     }
 
     public void TakeDamage(float _dmg){

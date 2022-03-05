@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//class that player can interact with to equip and unequip this gameobject
 public class Equipable : MonoBehaviour
 {
     public enum EquipableType
@@ -47,6 +48,11 @@ public class Equipable : MonoBehaviour
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
         isEquipped = true;
+
+        if (GetComponent<Scrappable>() != null)
+        {
+            GetComponent<Scrappable>().enabled = false;
+        }
     }
 
     public void Unequip()
@@ -67,6 +73,11 @@ public class Equipable : MonoBehaviour
             {
                 wpn.Unlock();
             }
+        }
+
+        if (GetComponent<Scrappable>() != null)
+        {
+            GetComponent<Scrappable>().enabled = true;
         }
     }
 }

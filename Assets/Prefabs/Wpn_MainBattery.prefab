@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 5816705217903872613}
   - component: {fileID: 5816705217903872614}
   - component: {fileID: 162709416}
+  - component: {fileID: 1065721109200527046}
   m_Layer: 0
   m_Name: Wpn_MainBattery
   m_TagString: Untagged
@@ -526,6 +527,27 @@ MonoBehaviour:
   possibleLocations: 01000000
   isEquipped: 0
   _hardpointManager: {fileID: 0}
+--- !u!114 &1065721109200527046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816705217903872612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc54e346e12bb0442936f9443f1057e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_scrapCount:
+    min: 1
+    max: 1
+  m_scrapValue:
+    min: 10
+    max: 10
+  disableOnScrap: 1
+  destroyOnScrap: 1
+  p_scrapPrefab: {fileID: 6965239626267420882, guid: 1f20a0304a2d3674fa2e6ecbaf75e7f4, type: 3}
 --- !u!1 &6845690082652060464
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 using UnityEditor;
 #endif
 
+//manages the equipping, unequipping, and usage of hardpoints (weapons and equipment)
 public class HardpointManager : MonoBehaviour
 {
     public enum HardpointLocation
@@ -31,7 +32,7 @@ public class HardpointManager : MonoBehaviour
     public List<InputAction> hardpointSelectActions = new List<InputAction>();
 
     [SerializeField] public List<Hardpoint> hardpoints = new List<Hardpoint>();
-    [SerializeField] public List<Equipable> equipables = new List<Equipable>();
+    [SerializeField] public List<Equipable> allEquipables = new List<Equipable>();
 
     public LockOnTargeter _lockOnTargeter;
 
@@ -42,6 +43,7 @@ public class HardpointManager : MonoBehaviour
     public int selectedHardpoint = 0;
     public float unequipTime = 1.0f;
     private float unequipTimer = 0.0f;
+    public float equipDistance = 10.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -74,8 +76,8 @@ public class HardpointManager : MonoBehaviour
     void Update()
     {
         UpdateUI();
-        CheckFiring();
-        CheckUnequip();
+        CheckFiringAction();
+        CheckUnequipAction();
         UpdateLockon();
 
     }
@@ -101,7 +103,7 @@ public class HardpointManager : MonoBehaviour
         }
     }
 
-    private void CheckUnequip()
+    private void CheckUnequipAction()
     {
         if (unequipAction.ReadValue<float>() > 0 && nearestEquipable == null && hardpoints[selectedHardpoint].equipped != null)
         {
@@ -116,7 +118,7 @@ public class HardpointManager : MonoBehaviour
         else unequipTimer = 0.0f;
     }
 
-    private void CheckFiring()
+    private void CheckFiringAction()
     {
         if (fireAction.ReadValue<float>() > 0)
         {
@@ -298,13 +300,20 @@ public class HardpointManager : MonoBehaviour
 
     private void CheckEquipables()
     {
+        Color c_yellow = new Color(1.0f, 1.0f, 0.0f, 0.95f);
+        Color c_fadedYellow = new Color(1.0f, 1.0f, 0.0f, 0.1f);
+
+        //check for any disabled or destroyed equipables
+        RemoveInvalidEquipables();
+
         //sort equipables by distance
-        equipables.Sort((x, y) => Vector3.Distance(transform.position, x.transform.position).CompareTo(Vector3.Distance(transform.position, y.transform.position)));
+        allEquipables.Sort((x, y) => Vector3.Distance(transform.position, x.transform.position).CompareTo(Vector3.Distance(transform.position, y.transform.position)));
 
         nearestEquipable = null;
-        _canEquipText.text = "";
+        _canEquipText.text = "[F] EQUIP ...";
+        _canEquipText.color = c_fadedYellow;
         //check if any equipables are nearby
-        foreach (Equipable eq in equipables)
+        foreach (Equipable eq in allEquipables)
         {
 
             if (eq.isEquipped)
@@ -312,23 +321,44 @@ public class HardpointManager : MonoBehaviour
                 continue;
             }
 
-            if (Vector3.Distance(eq.transform.position, transform.position) < 10.0f)
+            if (Vector3.Distance(eq.transform.position, transform.position) < equipDistance)
             {
                 nearestEquipable = eq;
                 _canEquipText.text = "[F] Equip " + eq.name;
+                _canEquipText.color = c_yellow;
                 break;
+            }
+        }
+    }
+
+    private void RemoveInvalidEquipables()
+    {
+        for (int i = allEquipables.Count - 1; i >= 0; i--)
+        {
+            if (allEquipables[i] == null || !allEquipables[i].enabled)
+            {
+                allEquipables.RemoveAt(i);
             }
         }
     }
 
     public void AddEquipable(Equipable equipable)
     {
-        if (equipables.Contains(equipable))
+        //check if already exists
+        if (allEquipables.Contains(equipable))
         {
             return;
         }
 
-        equipables.Add(equipable);
+        allEquipables.Add(equipable);
+    }
+
+    public void RemoveEquipable(Equipable equipable)
+    {
+        if (allEquipables.Contains(equipable))
+        {
+            allEquipables.Remove(equipable);
+        }
     }
 
     #if UNITY_EDITOR

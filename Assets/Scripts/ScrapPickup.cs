@@ -6,15 +6,15 @@ public class ScrapPickup : MonoBehaviour
 {
     public int scrapValue = 10;
     public AnimationCurve attractForce;
-    public ShipHealth _playerhealth;
+    public ScrapManager _scrapManager;
     private bool lockedIn = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        _playerhealth = FindObjectOfType<ShipHealth>();
+        _scrapManager = FindObjectOfType<ScrapManager>();
 
-        if (_playerhealth == null)
+        if (_scrapManager == null)
         {
             Debug.LogError("Player health not found");
         }
@@ -23,12 +23,12 @@ public class ScrapPickup : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (_playerhealth == null) return;
+        if (_scrapManager == null) return;
 
         //move towards player if close enough
-        float distance = Vector3.Distance(transform.position, _playerhealth.transform.position);
+        float distance = Vector3.Distance(transform.position, _scrapManager.transform.position);
         float maxDist = attractForce.keys[attractForce.length - 1].time;
-        Vector3 direction = (_playerhealth.transform.position - transform.position).normalized;
+        Vector3 direction = (_scrapManager.transform.position - transform.position).normalized;
 
         //catch scrap and drag in if close enough
         if (distance <= maxDist)
@@ -51,11 +51,11 @@ public class ScrapPickup : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (_playerhealth == null) return;
+        if (_scrapManager == null) return;
 
         if (other.gameObject.tag == "Player")
         {
-            _playerhealth.AddHealth(scrapValue);
+            _scrapManager.AddScrap(scrapValue);
             Destroy(gameObject);
         }
     }

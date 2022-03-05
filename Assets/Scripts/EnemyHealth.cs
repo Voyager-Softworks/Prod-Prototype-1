@@ -7,13 +7,6 @@ using System;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [Serializable]
-    private class MinMax
-    {
-        [SerializeField] public int min = 0;
-        [SerializeField] public int max = 1;
-    }
-
     public UnityEvent onDeath;
 
     public float startingHealth = 100f;
@@ -24,9 +17,7 @@ public class EnemyHealth : MonoBehaviour
     bool isDead = false;
 
     [Header("Scrap Drops")]
-    public GameObject p_scrapPrefab;
-    [SerializeField] private MinMax m_scrapCount = new MinMax();
-    [SerializeField] private MinMax m_scrapValue = new MinMax();
+    public GameObject p_scrappablePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -62,12 +53,7 @@ public class EnemyHealth : MonoBehaviour
         Destroy(gameObject, 1.0f);
     }
 
-    public void DropScrap(){
-        int realScrapCount = UnityEngine.Random.Range(m_scrapCount.min, m_scrapCount.max + 1);
-        for (int i = 0; i < realScrapCount; i++)
-        {
-            GameObject scrap = Instantiate(p_scrapPrefab, transform.position, Quaternion.identity, null);
-            scrap.GetComponent<ScrapPickup>().scrapValue = UnityEngine.Random.Range(m_scrapValue.min, m_scrapValue.max);
-        }
+    public void DropScrappable(){
+        GameObject scrap = Instantiate(p_scrappablePrefab, transform.position, Quaternion.identity, null);
     }
 }

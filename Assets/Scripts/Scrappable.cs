@@ -36,6 +36,13 @@ public class Scrappable : MonoBehaviour
         }
     }
 
+    private void OnEnable() {
+        if (_scrapManager != null)
+        {
+            _scrapManager.AddScrappable(this);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

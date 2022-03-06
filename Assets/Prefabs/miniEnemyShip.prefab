@@ -483,7 +483,7 @@ Transform:
   m_GameObject: {fileID: 6693523863872458388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -166.68, y: 10.59, z: 362.12}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4363770164472013202}
   - {fileID: 2411573983828790504}
@@ -574,7 +574,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   startingHealth: 200
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1558619668283261822}
   p_scrappablePrefab: {fileID: 3031720348475087503, guid: ad9005bf3157c7346a29acf299390bd8, type: 3}
 --- !u!114 &6693523863872458391
 MonoBehaviour:

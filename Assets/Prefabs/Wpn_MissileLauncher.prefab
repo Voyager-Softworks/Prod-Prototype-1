@@ -193,6 +193,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7461583901501038898, guid: 2763652c5e17dd3d39199a11f5117145, type: 3}
   fireSource: {fileID: 6091636874978402198}
   targetLock: {fileID: 0}
+  doAutoShoot: 0
 --- !u!82 &6091636874978402198
 AudioSource:
   m_ObjectHideFlags: 0

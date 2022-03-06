@@ -28,6 +28,10 @@ public class Projectile_Weapon : Ranged_Weapon, ITargetLockWeapon
     {
         GameObject projectile = Instantiate(projectilePrefab, muzzlePositions[currentMuzzle].position, muzzlePositions[currentMuzzle].rotation);
         projectile.GetComponent<Rigidbody>().velocity = projectile.transform.forward * projectileSpeed;
+        if(transform.parent.parent.parent.GetComponentInChildren<Rigidbody>())
+        {
+            projectile.GetComponent<Rigidbody>().velocity += transform.parent.parent.parent.GetComponentInChildren<Rigidbody>().velocity;
+        }
         fireSource.Play();
         if (anim != null)
         {

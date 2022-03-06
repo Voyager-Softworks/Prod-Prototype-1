@@ -147,6 +147,7 @@ MonoBehaviour:
   aimLeadMultiplier: 10
   maxRotateAngle: 110
   weapon: {fileID: 2865754492266226777}
+  alternativeForwardVector: 0
 --- !u!114 &2865754492266226777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clipSize: 20
-  firingDelay: 0.1
+  firingDelay: 0.5
   reloadTime: 2
   muzzlePositions:
   - {fileID: 2865754490242806921}

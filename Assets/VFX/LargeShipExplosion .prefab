@@ -222,7 +222,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.7735849, g: 0.14231044, b: 0.73519677, a: 0.5882353}
+      maxColor: {r: 0.7735849, g: 0.14231044, b: 0.73519677, a: 0.87058824}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 75
+      scalar: 100
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4903,7 +4903,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1808838919962744475}
   serializedVersion: 7
   lengthInSec: 1
-  simulationSpeed: 1
+  simulationSpeed: 0.4
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -9775,7 +9775,7 @@ ParticleSystem:
   m_GameObject: {fileID: 6247506581633530366}
   serializedVersion: 7
   lengthInSec: 2.5
-  simulationSpeed: 2
+  simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -9956,7 +9956,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.7735849, g: 0.14231044, b: 0.73519677, a: 0.5882353}
+      maxColor: {r: 0.77254903, g: 0.4327206, b: 0.14117646, a: 0.64705884}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10018,7 +10018,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 45
+      scalar: 75
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -14637,7 +14637,7 @@ ParticleSystem:
   m_GameObject: {fileID: 6327652198061747753}
   serializedVersion: 7
   lengthInSec: 1
-  simulationSpeed: 0.5
+  simulationSpeed: 0.2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -19482,7 +19482,7 @@ GameObject:
   - component: {fileID: 7485620052710988296}
   - component: {fileID: 8356267600751198020}
   m_Layer: 0
-  m_Name: 'ShipExplosion '
+  m_Name: 'LargeShipExplosion '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20497,7 +20497,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 30
+        scalar: 60
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -22203,7 +22203,7 @@ ParticleSystem:
     inWorldSpace: 0
     multiplyDragByParticleSize: 1
     multiplyDragByParticleVelocity: 1
-    dampen: 0.3
+    dampen: 0.15
     drag:
       serializedVersion: 2
       minMaxState: 0
@@ -24492,6 +24492,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 233727968152357079, guid: ce60d5a3f51d0a04cb5a32b176ab4043, type: 3}
+      propertyPath: simulationSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 233727968152357079, guid: ce60d5a3f51d0a04cb5a32b176ab4043, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 30
       objectReference: {fileID: 0}
@@ -24568,8 +24572,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8990364300622382930, guid: ce60d5a3f51d0a04cb5a32b176ab4043, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990364300622382930, guid: ce60d5a3f51d0a04cb5a32b176ab4043, type: 3}
       propertyPath: simulationSpeed
-      value: 0.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990364300622382930, guid: ce60d5a3f51d0a04cb5a32b176ab4043, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8990364300622382930, guid: ce60d5a3f51d0a04cb5a32b176ab4043, type: 3}
       propertyPath: InitialModule.startSize.minScalar
@@ -24588,8 +24600,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8990364300622382930, guid: ce60d5a3f51d0a04cb5a32b176ab4043, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990364300622382930, guid: ce60d5a3f51d0a04cb5a32b176ab4043, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce60d5a3f51d0a04cb5a32b176ab4043, type: 3}

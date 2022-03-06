@@ -189,7 +189,7 @@ MonoBehaviour:
   reloadTime: 10
   muzzlePositions:
   - {fileID: 6361544098542746312}
-  projectileSpeed: 20
+  projectileSpeed: 50
   projectilePrefab: {fileID: 7461583901501038898, guid: 2763652c5e17dd3d39199a11f5117145, type: 3}
   fireSource: {fileID: 6091636874978402198}
   targetLock: {fileID: 0}
@@ -350,7 +350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6361544098542746319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.703}
+  m_LocalPosition: {x: 0, y: 0, z: 3.256}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6900086212429759791}

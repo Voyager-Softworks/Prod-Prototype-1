@@ -84,7 +84,7 @@ public class ShipHealth : MonoBehaviour
         currentHealth = 0;
 
         GetComponent<ShipMovement>().enabled = false;
-        GetComponent<ShipWeapons>().c_hardpointManager.enabled = false;
+        GetComponent<HardpointManager>().enabled = false;
     }
 
     private void OnCollisionEnter(Collision other) {

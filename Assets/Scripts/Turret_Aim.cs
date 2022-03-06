@@ -19,6 +19,8 @@ public class Turret_Aim : MonoBehaviour, ITargetLockWeapon
 
     public Ranged_Weapon weapon;
 
+    public bool alternativeForwardVector = false;
+
     public void Lock(Transform target)
     {
         targetLock = target;
@@ -67,10 +69,12 @@ public class Turret_Aim : MonoBehaviour, ITargetLockWeapon
     {
         if(!doAutoAim) return false;
 
+        
+
         if (targetLock != null && targetRigidbody != null)
         {
             Vector3 targetDir = (targetLock.position+ (targetRigidbody.velocity * ((targetLock.position-rotatingPart.position).magnitude/weapon.projectileSpeed))) - rotatingPart.position;
-            float angle = Vector3.Angle(targetDir, this.transform.forward);
+            float angle = Vector3.Angle(targetDir, (alternativeForwardVector ? this.transform.up : this.transform.forward));
             if (angle < maxRotateAngle)
             {
                 targetDir.Normalize();
@@ -80,14 +84,14 @@ public class Turret_Aim : MonoBehaviour, ITargetLockWeapon
             }
             else
             {
-                Quaternion targetRotation = Quaternion.LookRotation(transform.forward);
+                Quaternion targetRotation = Quaternion.LookRotation((alternativeForwardVector ? this.transform.up : this.transform.forward));
                 rotatingPart.rotation = Quaternion.Slerp(rotatingPart.rotation, targetRotation, rotateSpeed * Time.deltaTime);
                 return false;
             }
         }
         else
         {
-            Quaternion targetRotation = Quaternion.LookRotation(transform.forward);
+            Quaternion targetRotation = Quaternion.LookRotation((alternativeForwardVector ? this.transform.up : this.transform.forward));
             rotatingPart.rotation = Quaternion.Slerp(rotatingPart.rotation, targetRotation, rotateSpeed * Time.deltaTime);
             return false;
         }
@@ -96,6 +100,6 @@ public class Turret_Aim : MonoBehaviour, ITargetLockWeapon
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(rotatingPart.position, rotatingPart.forward * 100.0f);
+        Gizmos.DrawRay(rotatingPart.position, (alternativeForwardVector ? rotatingPart.transform.up : rotatingPart.transform.forward) * 100.0f);
     }
 }

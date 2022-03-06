@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 119836535}
   - component: {fileID: 977750525}
   m_Layer: 0
-  m_Name: Wpn_MissileLauncher
+  m_Name: Wpn_MissileLauncher_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,9 +190,10 @@ MonoBehaviour:
   muzzlePositions:
   - {fileID: 6361544098542746312}
   projectileSpeed: 100
-  projectilePrefab: {fileID: 7461583901501038898, guid: 2763652c5e17dd3d39199a11f5117145, type: 3}
+  projectilePrefab: {fileID: 7461583901501038898, guid: a3ca9dc1767e7c4bcb032eb6f3640265, type: 3}
   fireSource: {fileID: 6091636874978402198}
   targetLock: {fileID: 0}
+  doAutoShoot: 1
 --- !u!82 &6091636874978402198
 AudioSource:
   m_ObjectHideFlags: 0

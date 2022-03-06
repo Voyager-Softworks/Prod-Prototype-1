@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8566256835961044129}
   - component: {fileID: 6625833216603128300}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 2352080285501082527}
   - component: {fileID: 5075156253235016647}
   - component: {fileID: 1670349237988971905}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Contrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4944,7 +4944,7 @@ GameObject:
   - component: {fileID: 7461583899710026664}
   - component: {fileID: 7461583899710026667}
   - component: {fileID: 7232195990320404944}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TempBrick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5058,7 +5058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7461583900106839383}
   - component: {fileID: 7461583900106839380}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5234,8 +5234,8 @@ GameObject:
   - component: {fileID: 7461583901501038899}
   - component: {fileID: 7461583901501038897}
   - component: {fileID: 1138216613693060530}
-  m_Layer: 0
-  m_Name: Missile
+  m_Layer: 7
+  m_Name: PlayerMissile
   m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5270,9 +5270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93779af86b2fec7589bed410e4cd216a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 800
+  thrust: 1200
   turnSpeed: 30
-  secondsOfFuel: 20
+  secondsOfFuel: 8
   targetLock: {fileID: 0}
   thrusterDelay: 1
   explosionPrefab: {fileID: 8094342784708193928, guid: a8340c0d6cf885e0c87d6c3937242fd7, type: 3}

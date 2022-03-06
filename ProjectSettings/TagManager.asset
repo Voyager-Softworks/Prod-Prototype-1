@@ -15,13 +15,13 @@ TagManager:
   - Water
   - UI
   - Gun
-  - Bullet
+  - PlayerBullet
   - PostProcessing
   - Not in Reflection
   - Planet
-  - 
-  - 
-  - 
+  - EnemyBullet
+  - Enemy
+  - Player
   - 
   - 
   - 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6507628107086423434}
   - component: {fileID: 488731457113555303}
   - component: {fileID: 8805790694953374134}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: EnemyBullet
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 7576141061221625512}
   - component: {fileID: 3093249929921459379}
   - component: {fileID: 3122789224990962649}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

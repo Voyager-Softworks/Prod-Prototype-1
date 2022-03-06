@@ -46552,36 +46552,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866297925}
   m_Mesh: {fileID: 6799018417282778184, guid: d0079584933489a4bb1c0c37f988c072, type: 3}
---- !u!1 &1866985775
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6693523863872458388, guid: 9609af06ad4b568c9bda66f4d16d5fc3, type: 3}
-  m_PrefabInstance: {fileID: 1504554795032529520}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1866985776}
-  m_Layer: 0
-  m_Name: 'miniEnemyShip (Missing Prefab with guid: 9609af06ad4b568c9bda66f4d16d5fc3)'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1866985776
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6318546777121723438, guid: 9609af06ad4b568c9bda66f4d16d5fc3, type: 3}
-  m_PrefabInstance: {fileID: 1504554795032529520}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866985775}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1867495549
 GameObject:
   m_ObjectHideFlags: 0
@@ -53985,17 +53955,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1738434866284288595, guid: 9609af06ad4b568c9bda66f4d16d5fc3, type: 3}
-      propertyPath: firingDelay
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3044296836331244237, guid: 9609af06ad4b568c9bda66f4d16d5fc3, type: 3}
-      propertyPath: firingDelay
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 6318546777121723438, guid: 9609af06ad4b568c9bda66f4d16d5fc3, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6318546777121723438, guid: 9609af06ad4b568c9bda66f4d16d5fc3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54040,10 +54002,6 @@ PrefabInstance:
     - target: {fileID: 6693523863872458388, guid: 9609af06ad4b568c9bda66f4d16d5fc3, type: 3}
       propertyPath: m_Name
       value: miniEnemyShip
-      objectReference: {fileID: 0}
-    - target: {fileID: 6693523863872458388, guid: 9609af06ad4b568c9bda66f4d16d5fc3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6693523863872458392, guid: 9609af06ad4b568c9bda66f4d16d5fc3, type: 3}
       propertyPath: healthBar

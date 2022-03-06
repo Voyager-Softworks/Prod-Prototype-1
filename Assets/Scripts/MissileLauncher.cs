@@ -9,6 +9,8 @@ public class MissileLauncher : Ranged_Weapon, ITargetLockWeapon
 
     public Transform targetLock;
 
+    public bool doAutoShoot = false;
+
     public void Lock(Transform target)
     {
         targetLock = target;
@@ -21,16 +23,26 @@ public class MissileLauncher : Ranged_Weapon, ITargetLockWeapon
 
     void Start()
     {
-        // if(transform.parent && transform.parent.tag == "Player")
-        // {
-        //     FindObjectOfType<LockOnTargeter>().RegisterLockOnListener(this);
-        // }
+        
+    }
+
+    public void Update()
+    {
+        if(doAutoShoot && targetLock != null)
+        {
+            
+            TryShoot();
+        }
     }
     
     public override void Fire()
     {
         GameObject projectile = Instantiate(projectilePrefab, muzzlePositions[currentMuzzle].position, muzzlePositions[currentMuzzle].rotation);
         projectile.GetComponent<Rigidbody>().velocity = projectile.transform.forward * projectileSpeed;
+        if(transform.parent.parent.parent.GetComponentInChildren<Rigidbody>())
+        {
+            projectile.GetComponent<Rigidbody>().velocity += transform.parent.parent.parent.GetComponentInChildren<Rigidbody>().velocity;
+        }
         fireSource.Play();
         if (anim != null)
         {

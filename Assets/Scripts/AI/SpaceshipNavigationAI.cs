@@ -13,6 +13,14 @@ public class SpaceshipNavigationAI : MonoBehaviour
 
     public float thrust;
 
+    public float maxThrust;
+
+    public float minThrust;
+
+    public AnimationCurve thrustCurve;
+
+    public float turnSpeed = 3.0f;
+
     //Set Flight Vector
     void SetFlightVector()
     {
@@ -49,7 +57,7 @@ public class SpaceshipNavigationAI : MonoBehaviour
 
 
 
-        transform.rotation = Quaternion.Slerp(transform.rotation,  Quaternion.Slerp(yawPitch,roll,0.5f), Time.deltaTime * 3.0f);
+        transform.rotation = Quaternion.Slerp(transform.rotation,  Quaternion.Slerp(yawPitch,roll,0.5f), Time.deltaTime * turnSpeed);
     }
 
 
@@ -83,13 +91,13 @@ public class SpaceshipNavigationAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    async void Update()
     {
         SetFlightVector();
         AvoidObstacles();
         RotateToFlightVector();
         //Move forward
-        rb.velocity = (transform.forward * Time.deltaTime * thrust);
+        rb.velocity = (transform.forward * Time.deltaTime * thrustCurve.Evaluate(Vector3.Distance(transform.position, targetPosition.position)/1000.0f) * maxThrust);
     }
 
     void OnDrawGizmos()

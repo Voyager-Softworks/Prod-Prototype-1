@@ -45,6 +45,13 @@ public class HomingMissile : MonoBehaviour
             }
             GetComponent<Rigidbody>().AddForce(transform.forward * thrust);
             }
+            else
+            {
+                GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation); 
+        
+                Destroy(gameObject);
+            }
+
         }
     }
 
@@ -52,7 +59,7 @@ public class HomingMissile : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            // Do damage to player
+            collision.gameObject.GetComponent<ShipHealth>().TakeDamage(10.0f);
         }
         else if(collision.gameObject.tag == "Enemy")
         {

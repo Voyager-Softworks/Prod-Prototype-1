@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6337335, g: 0.26668096, b: 0.48195195, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -26349,17 +26349,6 @@ Transform:
   m_Father: {fileID: 2045277959}
   m_RootOrder: 121
   m_LocalEulerAnglesHint: {x: 61.485, y: 0, z: 0}
---- !u!114 &1058495199 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 323107629917827634, guid: 8e2744f69c89fbd7089c313eeeb4dcad, type: 3}
-  m_PrefabInstance: {fileID: 3796941652261665564}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1059332727
 GameObject:
   m_ObjectHideFlags: 0
@@ -54610,70 +54599,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70283601}
     m_Modifications:
-    - target: {fileID: 3146833673364764946, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: clipSize
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146833673364764946, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: reloadTime
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146833673364764946, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: firingDelay
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3961146332512295624, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: clipSize
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3961146332512295624, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: reloadTime
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3961146332512295624, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: firingDelay
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567370337936, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990567370337936, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: firingDelay
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567370337937, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990567370337937, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rotateSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725990567370337937, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: maxRotateAngle
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567370337937, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetRigidbody
       value: 
       objectReference: {fileID: 919132149103053636}
-    - target: {fileID: 6725990567370337939, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rolloffMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567477357492, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990567477357492, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rotateSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725990567477357492, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: maxRotateAngle
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567477357492, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetRigidbody
       value: 
@@ -54682,86 +54623,34 @@ PrefabInstance:
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990567477357493, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: firingDelay
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725990567477357494, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rolloffMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567746133488, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990567746133488, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: firingDelay
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567746133489, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990567746133489, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rotateSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725990567746133489, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: maxRotateAngle
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567746133489, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetRigidbody
       value: 
       objectReference: {fileID: 919132149103053636}
-    - target: {fileID: 6725990567746133491, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rolloffMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567951542724, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990567951542724, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: firingDelay
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567951542725, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990567951542725, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rotateSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725990567951542725, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: maxRotateAngle
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567951542725, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetRigidbody
       value: 
       objectReference: {fileID: 919132149103053636}
-    - target: {fileID: 6725990567951542727, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rolloffMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725990567978091624, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rolloffMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567978091626, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990567978091626, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rotateSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725990567978091626, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: maxRotateAngle
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990567978091626, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetRigidbody
       value: 
@@ -54770,54 +54659,22 @@ PrefabInstance:
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990567978091627, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: firingDelay
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990568653393644, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990568653393644, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: firingDelay
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990568653393645, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990568653393645, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rotateSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725990568653393645, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: maxRotateAngle
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990568653393645, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetRigidbody
       value: 
       objectReference: {fileID: 919132149103053636}
-    - target: {fileID: 6725990568653393647, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rolloffMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725990568727938608, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rolloffMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990568727938610, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990568727938610, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rotateSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725990568727938610, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: maxRotateAngle
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990568727938610, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetRigidbody
       value: 
@@ -54826,49 +54683,21 @@ PrefabInstance:
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990568727938611, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: firingDelay
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725990569032571345, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rolloffMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990569032571346, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990569032571346, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: firingDelay
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990569032571347, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetLock
       value: 
       objectReference: {fileID: 543450653626569211}
-    - target: {fileID: 6725990569032571347, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: rotateSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725990569032571347, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: maxRotateAngle
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 6725990569032571347, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetRigidbody
       value: 
       objectReference: {fileID: 919132149103053636}
-    - target: {fileID: 8526397793470634898, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1058495199}
     - target: {fileID: 8526397793470634902, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: m_Name
       value: TankEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526397793470634902, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8526397793470634903, guid: 2b4f7445300e99548bc6f5446d00f760, type: 3}
       propertyPath: targetPosition

@@ -7051,7 +7051,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -2701281390992479291, guid: 486ec1b1326da354f8eda299a90c9281, type: 3}
+  m_Mesh: {fileID: -4735789231462679062, guid: 3a29ec2a8fbe6b044b07ba1219b9e4d8, type: 3}
   m_Bones:
   - {fileID: 8235730935524144585}
   - {fileID: 1180960469998478254}
@@ -8374,7 +8374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c609ec8014b94f4aab271889ddc8c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  c_hardpointManager: {fileID: 0}
+  c_hardpointManager: {fileID: 4290887638621026426}
 --- !u!114 &2066371948862468657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10624,6 +10624,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4750503482806369718}
     m_Modifications:
+    - target: {fileID: 1469166448408680488, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5962346497415607776, guid: f209ddb5133ef6a4a9a1bab02a59703a, type: 3}
     - target: {fileID: 2865754492266226775, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -10722,6 +10726,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4750503482806369718}
     m_Modifications:
+    - target: {fileID: 1469166448408680488, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5962346497415607776, guid: f209ddb5133ef6a4a9a1bab02a59703a, type: 3}
     - target: {fileID: 2865754492266226775, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
       propertyPath: m_RootOrder
       value: 6

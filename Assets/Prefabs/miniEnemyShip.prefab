@@ -10559,7 +10559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  range: 900
+  range: 600
 --- !u!1 &8103780214928093073
 GameObject:
   m_ObjectHideFlags: 0

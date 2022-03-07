@@ -629,7 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 0}
-  avoidanceRange: 70
+  avoidanceRange: 500
   thrust: 2000
   maxThrust: 15000
   minThrust: 0

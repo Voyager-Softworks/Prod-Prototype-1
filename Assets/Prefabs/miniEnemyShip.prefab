@@ -111,8 +111,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2493226993422686046, guid: 231f62d42543eb0409ab770aaf57818e, type: 3}
-  - {fileID: -8635914489319688441, guid: 231f62d42543eb0409ab770aaf57818e, type: 3}
+  - {fileID: 2100000, guid: 44856c010ccbb1b8dbcaffc40dd5c163, type: 2}
+  - {fileID: 2100000, guid: 44856c010ccbb1b8dbcaffc40dd5c163, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 0}
-  avoidanceRange: 30
+  avoidanceRange: 500
   thrust: 1500
   maxThrust: 15000
   minThrust: 0
@@ -533,7 +533,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  turnSpeed: 3
+  turnSpeed: 0.7
 --- !u!114 &6693523863872458392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,7 +671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  range: 100
+  range: 300
 --- !u!1 &8103780214928093073
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,6 +827,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 6211506524285944720, guid: 8d894079e62cce77b93c17229ce06954, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44856c010ccbb1b8dbcaffc40dd5c163, type: 2}
     - target: {fileID: 6231653436250529846, guid: 8d894079e62cce77b93c17229ce06954, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -933,6 +937,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 97.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6211506524285944720, guid: 8d894079e62cce77b93c17229ce06954, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44856c010ccbb1b8dbcaffc40dd5c163, type: 2}
     - target: {fileID: 6231653436250529846, guid: 8d894079e62cce77b93c17229ce06954, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -67,7 +67,7 @@ public class SpaceshipNavigationAI : MonoBehaviour
     {
         
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, flightVector, out hit, avoidanceRange))
+        if (Physics.Raycast(transform.position, flightVector, out hit, avoidanceRange * thrustCurve.Evaluate(Vector3.Distance(transform.position, targetPosition.position)/1000.0f)))
         {
             //If the raycast hit something, adjust the flight vector to steer away from it
             flightVector = (Vector3.Reflect(flightVector, hit.normal) + flightVector);

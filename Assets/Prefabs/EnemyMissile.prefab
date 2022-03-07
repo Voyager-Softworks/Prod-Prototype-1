@@ -4993,7 +4993,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: dd6c2edbe73bf7b4ba83a11026736910, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5270,9 +5270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93779af86b2fec7589bed410e4cd216a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 1200
+  thrust: 700
   turnSpeed: 30
-  secondsOfFuel: 10
+  secondsOfFuel: 14
   targetLock: {fileID: 0}
   thrusterDelay: 1
   explosionPrefab: {fileID: 8094342784708193928, guid: a8340c0d6cf885e0c87d6c3937242fd7, type: 3}

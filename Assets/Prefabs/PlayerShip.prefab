@@ -8027,6 +8027,7 @@ GameObject:
   - component: {fileID: 7188398263633162936}
   - component: {fileID: 4290887638621026426}
   - component: {fileID: 7277616879118398267}
+  - component: {fileID: 6826492961540875974}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Player
@@ -8776,6 +8777,19 @@ MonoBehaviour:
   healSound: {fileID: 8300000, guid: 0f911f181ff1a7e428a0070e0142cb66, type: 3}
   failHealSound: {fileID: 8300000, guid: a91a670aaa648fb428ad30d5d6d6648e, type: 3}
   collectScrapSound: {fileID: 8300000, guid: fdc550bdf0e53b1479246aac4255e12f, type: 3}
+--- !u!114 &6826492961540875974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379265063227860748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7773df10c93d6e191b8c1313600b6a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3500
 --- !u!1 &5391247026946026233
 GameObject:
   m_ObjectHideFlags: 0

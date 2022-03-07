@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HomingMissile : MonoBehaviour
 {
+    public float damage = 30.0f;
     public float thrust = 10.0f;
     public float turnSpeed = 10.0f;
     public float secondsOfFuel = 5.0f;
@@ -59,7 +60,7 @@ public class HomingMissile : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<ShipHealth>().TakeDamage(10.0f);
+            collision.gameObject.GetComponent<ShipHealth>().TakeDamage(damage);
         }
         else if(collision.gameObject.tag == "Enemy")
         {

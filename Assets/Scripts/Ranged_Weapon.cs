@@ -25,6 +25,19 @@ public class Ranged_Weapon : MonoBehaviour
         currentMuzzle = 0;
         anim = GetComponentInChildren<Animator>();
     }
+
+    protected void Update()
+    {
+        if (reloadTimer <= 0)
+        {
+            Reload();
+        }
+        else if (currentAmmo <= 0 && reloadTimer > 0.0f)
+        {
+            reloadTimer -= Time.deltaTime;
+        }
+    }
+
     public void TryShoot()
     {
         if (currentAmmo > 0)
@@ -45,13 +58,6 @@ public class Ranged_Weapon : MonoBehaviour
                 firingTimer -= Time.deltaTime;
             }
         }
-        else
-        {
-            if (reloadTimer <= 0)
-            {
-                Reload();
-            }
-        }
     }
 
 
@@ -63,17 +69,15 @@ public class Ranged_Weapon : MonoBehaviour
     public void Reload()
     {
         reloadTimer = reloadTime;
-        StartCoroutine(ReloadCoroutine());
+        currentAmmo = clipSize;
     }
 
-    // coroutine to reload
-    IEnumerator ReloadCoroutine()
+    public int GetCurrentAmmo()
     {
-        while(reloadTimer > 0)
-        {
-            reloadTimer -= Time.deltaTime;
-            yield return null;
-        }
-        currentAmmo = clipSize;
+        return currentAmmo;
+    }
+
+    public float GetRemainingReloadTime(){
+        return reloadTimer;
     }
 }

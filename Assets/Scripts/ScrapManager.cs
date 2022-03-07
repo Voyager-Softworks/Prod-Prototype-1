@@ -10,9 +10,10 @@ public class ScrapManager : MonoBehaviour
 {
     public InputAction scrapItemAction;
     public InputAction toggleAutoHealAction;
+    public InputAction healAction;
 
     public int maxScrap = 100;
-    public int currentScrap = 0;
+    public int currentScrap = 10;
     public bool autoHeal = false;
     public float scrapToHealthRate = 1.0f;
 
@@ -28,6 +29,11 @@ public class ScrapManager : MonoBehaviour
     private float scrapTimer = 0.0f;
     public float scrapDistance = 10.0f;
 
+    public AudioClip scrapSound;
+    public AudioClip healSound;
+    public AudioClip failHealSound;
+    public AudioClip collectScrapSound;
+
     private ShipHealth shipHealth;
 
     // Start is called before the first frame update
@@ -35,8 +41,10 @@ public class ScrapManager : MonoBehaviour
     {
         scrapItemAction.Enable();
         toggleAutoHealAction.Enable();
+        healAction.Enable();
 
         toggleAutoHealAction.performed += ToggleAutoHeal;
+        healAction.performed += TryHeal;
 
         //add all scrapables to list
         foreach (Scrappable s in FindObjectsOfType<Scrappable>())
@@ -75,12 +83,12 @@ public class ScrapManager : MonoBehaviour
 
         if (nearestScrappable != null)
         {
-            _canScrapText.text = "[G] SCRAP " + nearestScrappable.name;
+            _canScrapText.text = "[G] SCRAP " + nearestScrappable.scrapName;
             _canScrapText.color = c_yellow;
 
             if (scrapTimer > 0)
             {
-                _scrapInfoText.text = "SCRAPPING\n" + nearestScrappable.name + " " + ((scrapTimer / scrapTime) * 100).ToString("0") + "%";
+                _scrapInfoText.text = "SCRAPPING\n" + nearestScrappable.scrapName + " " + ((scrapTimer / scrapTime) * 100).ToString("0") + "%";
                 _scrapInfoText.color = c_green;
             }
         }
@@ -111,6 +119,32 @@ public class ScrapManager : MonoBehaviour
         autoHeal = _autoHeal;
     }
 
+    private void TryHeal(InputAction.CallbackContext context){
+        if (context.performed){
+            TryHeal();
+        }
+    }
+
+    public void TryHeal(){
+        //use scrap to heal
+        float healthNeededToFull = shipHealth.maxHealth - shipHealth.currentHealth;
+        int scrapNeededToFull = (int)(Mathf.Ceil(healthNeededToFull / scrapToHealthRate));
+        scrapNeededToFull = Mathf.Max(scrapNeededToFull, 0);
+
+        int scrapToUse = Mathf.Min(currentScrap, scrapNeededToFull);
+        currentScrap = currentScrap - scrapToUse;
+
+        shipHealth.AddHealth(scrapToUse * scrapToHealthRate);
+
+        if (scrapToUse > 0){
+            GetComponent<Animator>().SetTrigger("Repair");
+            GetComponent<AudioSource>().PlayOneShot(healSound);
+        }
+        else{
+            GetComponent<AudioSource>().PlayOneShot(failHealSound);
+        }
+    }
+
     public void CheckScrapAction()
     {
         if (scrapItemAction.ReadValue<float>() > 0 && nearestScrappable != null)
@@ -139,6 +173,8 @@ public class ScrapManager : MonoBehaviour
         if (s != null)
         {
             s.ScrapObject();
+            GetComponent<Animator>().SetTrigger("Scrap");
+            GetComponent<AudioSource>().PlayOneShot(scrapSound);
         }
     }
 
@@ -171,20 +207,26 @@ public class ScrapManager : MonoBehaviour
     public void AddScrap(int _scrap)
     {
         if (autoHeal){
+            float autoHealScrapRate = scrapToHealthRate * 0.5f;
+
             float healthNeededToFull = shipHealth.maxHealth - shipHealth.currentHealth;
-            int scrapNeededToFull = (int)(Mathf.Ceil(healthNeededToFull / scrapToHealthRate));
+            int scrapNeededToFull = (int)(Mathf.Ceil(healthNeededToFull / autoHealScrapRate));
             scrapNeededToFull = Mathf.Max(scrapNeededToFull, 0);
 
             int scrapToUse = Mathf.Min(_scrap, scrapNeededToFull);
             _scrap = _scrap - scrapToUse;
 
-            shipHealth.AddHealth(scrapToUse * scrapToHealthRate);
+            shipHealth.AddHealth(scrapToUse * autoHealScrapRate);
         }
+
 
         currentScrap += _scrap;
         if (currentScrap > maxScrap)
         {
             currentScrap = maxScrap;
+        }
+        else{
+            GetComponent<AudioSource>().PlayOneShot(collectScrapSound);
         }
     }
 

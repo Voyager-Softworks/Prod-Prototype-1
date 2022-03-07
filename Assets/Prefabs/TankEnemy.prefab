@@ -942,6 +942,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3587703783111963657}
     m_Modifications:
+    - target: {fileID: 4754098422823787852, guid: abb9fa18839f04ed7add4f23a141fba0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc8562bffa50be8479a8ce6c05ce5b44, type: 2}
     - target: {fileID: 6091636874978402197, guid: abb9fa18839f04ed7add4f23a141fba0, type: 3}
       propertyPath: m_Name
       value: Wpn_MissileLauncher_Enemy
@@ -1828,6 +1832,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3587703783111963657}
     m_Modifications:
+    - target: {fileID: 4754098422823787852, guid: abb9fa18839f04ed7add4f23a141fba0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc8562bffa50be8479a8ce6c05ce5b44, type: 2}
     - target: {fileID: 6091636874978402197, guid: abb9fa18839f04ed7add4f23a141fba0, type: 3}
       propertyPath: m_Name
       value: Wpn_MissileLauncher_Enemy (1)

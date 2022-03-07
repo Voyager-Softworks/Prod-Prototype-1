@@ -5270,6 +5270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93779af86b2fec7589bed410e4cd216a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   thrust: 700
   turnSpeed: 30
   secondsOfFuel: 14

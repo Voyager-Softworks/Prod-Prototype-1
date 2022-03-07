@@ -8694,6 +8694,9 @@ MonoBehaviour:
   selectedHardpoint: 0
   unequipTime: 1
   equipDistance: 10
+  equipSound: {fileID: 8300000, guid: 4ea95d9807ef1f641b1a68b38744721a, type: 3}
+  unequipSound: {fileID: 8300000, guid: d075a2753e0b342458882af7d2a16b67, type: 3}
+  failEquipSound: {fileID: 8300000, guid: a91a670aaa648fb428ad30d5d6d6648e, type: 3}
 --- !u!114 &7277616879118398267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8740,8 +8743,25 @@ MonoBehaviour:
       m_Action: Toggle Auto Heal
       m_Flags: 0
     m_Flags: 0
+  healAction:
+    m_Name: Heal
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e15d7208-4c3b-4246-93c7-ec7c2904083e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4e33b30e-f616-4cf1-b9cd-74c34022ac57
+      m_Path: <Keyboard>/v
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Heal
+      m_Flags: 0
+    m_Flags: 0
   maxScrap: 100
-  currentScrap: 0
+  currentScrap: 10
   autoHeal: 0
   scrapToHealthRate: 1
   allScrapables: []
@@ -8752,6 +8772,10 @@ MonoBehaviour:
   nearestScrappable: {fileID: 0}
   scrapTime: 2
   scrapDistance: 10
+  scrapSound: {fileID: 8300000, guid: f6c693d1fd639f94290e0773127a00c9, type: 3}
+  healSound: {fileID: 8300000, guid: 0f911f181ff1a7e428a0070e0142cb66, type: 3}
+  failHealSound: {fileID: 8300000, guid: a91a670aaa648fb428ad30d5d6d6648e, type: 3}
+  collectScrapSound: {fileID: 8300000, guid: fdc550bdf0e53b1479246aac4255e12f, type: 3}
 --- !u!1 &5391247026946026233
 GameObject:
   m_ObjectHideFlags: 0

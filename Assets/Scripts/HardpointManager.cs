@@ -45,6 +45,10 @@ public class HardpointManager : MonoBehaviour
     private float unequipTimer = 0.0f;
     public float equipDistance = 10.0f;
 
+    public AudioClip equipSound;
+    public AudioClip unequipSound;
+    public AudioClip failEquipSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -145,16 +149,18 @@ public class HardpointManager : MonoBehaviour
         int i = 0;
         foreach (HardpointList.HardpointItem entry in _hardpointList.hardpointItems)
         {
-            entry.number.color = c_yellow;
+            entry.number.color = c_black;
             entry.icon.transform.localScale = Vector3.one;
 
             if (hardpoints[i].equipped != null)
             {
                 entry.icon.color = c_green;
+                entry.icon.sprite = hardpoints[i].equipped.iconImage;
             }
             else
             {
                 entry.icon.color = c_black;
+                entry.icon.sprite = null;
             }
 
             if (nearestEquipable != null)
@@ -189,7 +195,23 @@ public class HardpointManager : MonoBehaviour
     {
         if (hardpoints[selectedHardpoint].equipped != null)
         {
-            _currentEquipText.text = hardpoints[selectedHardpoint].equipped.name;
+            _currentEquipText.text = hardpoints[selectedHardpoint].equipped.equipableName;
+
+            if (hardpoints[selectedHardpoint].equipped.GetComponent<Ranged_Weapon>() != null)
+            {
+                Ranged_Weapon wpn = hardpoints[selectedHardpoint].equipped.GetComponent<Ranged_Weapon>();
+                int ammo = wpn.GetCurrentAmmo();
+                float reloadTimeLeft = wpn.GetRemainingReloadTime();
+
+                if (ammo > 0) {
+                    _currentEquipText.text += "\nAMMO (" + hardpoints[selectedHardpoint].equipped.GetComponent<Ranged_Weapon>().GetCurrentAmmo() + ")";
+                }
+                else
+                {
+                    _currentEquipText.text += "\nRELOADING (" + reloadTimeLeft.ToString("0.0") + "s)";
+                }
+                
+            }
         }
         else
         {
@@ -271,13 +293,9 @@ public class HardpointManager : MonoBehaviour
     }
 
     public void TryEquip(Equipable _equipable, int index){
-        if (index < 0 || index >= hardpoints.Count)
+        if ((index < 0 || index >= hardpoints.Count) || !_equipable.possibleLocations.Contains(hardpoints[index].location))
         {
-            return;
-        }
-
-        if (!_equipable.possibleLocations.Contains(hardpoints[index].location))
-        {
+            GetComponent<AudioSource>().PlayOneShot(failEquipSound);
             return;
         }
 
@@ -288,6 +306,9 @@ public class HardpointManager : MonoBehaviour
 
         hardpoints[index].equipped = _equipable;
         _equipable.Equip(hardpoints[index].hardpoint);
+
+        GetComponent<Animator>().SetTrigger("Equip");
+        GetComponent<AudioSource>().PlayOneShot(equipSound);
     }
 
     public void TryUnequipHardpoint(int index) {
@@ -295,6 +316,8 @@ public class HardpointManager : MonoBehaviour
         {
             hardpoints[index].equipped.Unequip();
             hardpoints[index].equipped = null;
+            GetComponent<Animator>().SetTrigger("Eject");
+            GetComponent<AudioSource>().PlayOneShot(unequipSound);
         }
     }
 
@@ -324,7 +347,7 @@ public class HardpointManager : MonoBehaviour
             if (Vector3.Distance(eq.transform.position, transform.position) < equipDistance)
             {
                 nearestEquipable = eq;
-                _canEquipText.text = "[F] Equip " + eq.name;
+                _canEquipText.text = "[F] Equip " + eq.equipableName;
                 _canEquipText.color = c_yellow;
                 break;
             }

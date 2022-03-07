@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //class that player can interact with to equip and unequip this gameobject
 public class Equipable : MonoBehaviour
@@ -11,9 +12,13 @@ public class Equipable : MonoBehaviour
         equipment
     }
 
+    public string equipableName;
+
     public EquipableType type = EquipableType.rangedWeapon;
     public List<HardpointManager.HardpointLocation> possibleLocations = new List<HardpointManager.HardpointLocation>();
     public bool isEquipped = false;
+
+    public Sprite iconImage;
 
     public HardpointManager _hardpointManager;
 

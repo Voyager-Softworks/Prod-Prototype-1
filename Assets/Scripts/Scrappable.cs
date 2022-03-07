@@ -15,6 +15,9 @@ public class Scrappable : MonoBehaviour
     [SerializeField] private MinMax m_scrapCount = new MinMax();
     [SerializeField] private MinMax m_scrapValue = new MinMax();
 
+    [Tooltip("The name of the scrap, if it is equippable, name that, leave this")]
+    public String scrapName;
+
     public bool disableOnScrap = true;
     public bool destroyOnScrap = true;
 
@@ -33,6 +36,11 @@ public class Scrappable : MonoBehaviour
         if (_scrapManager != null)
         {
             _scrapManager.AddScrappable(this);
+        }
+
+        if (GetComponent<Equipable>() != null)
+        {
+            scrapName = GetComponent<Equipable>().equipableName;
         }
     }
 

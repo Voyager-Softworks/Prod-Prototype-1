@@ -26,8 +26,10 @@ public class MissileLauncher : Ranged_Weapon, ITargetLockWeapon
         
     }
 
-    public void Update()
+    public new void Update()
     {
+        base.Update();
+
         if(doAutoShoot && targetLock != null)
         {
             

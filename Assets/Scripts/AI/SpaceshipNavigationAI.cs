@@ -91,7 +91,7 @@ public class SpaceshipNavigationAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    async void Update()
+    void Update()
     {
         SetFlightVector();
         AvoidObstacles();

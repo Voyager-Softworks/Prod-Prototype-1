@@ -10604,6 +10604,10 @@ PrefabInstance:
       propertyPath: isEquipped
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1065721109200527046, guid: 966b5688768e5e35d8b90fa8dabafdb9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5816705217903872612, guid: 966b5688768e5e35d8b90fa8dabafdb9, type: 3}
       propertyPath: m_Name
       value: Wpn_MainBattery

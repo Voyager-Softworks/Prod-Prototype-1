@@ -7,6 +7,13 @@ using System;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [Serializable]
+    private class WeaponDrop
+    {
+        public GameObject weapon;
+        public float chance;
+    }
+
     public UnityEvent onDeath;
 
     public float startingHealth = 100f;
@@ -16,8 +23,9 @@ public class EnemyHealth : MonoBehaviour
 
     bool isDead = false;
 
-    [Header("Scrap Drops")]
+    [Header("Drops")]
     public GameObject p_scrappablePrefab;
+    [SerializeField] private List<WeaponDrop> weaponDrops = new List<WeaponDrop>();
 
     // Start is called before the first frame update
     void Start()
@@ -55,5 +63,15 @@ public class EnemyHealth : MonoBehaviour
 
     public void DropScrappable(){
         GameObject scrap = Instantiate(p_scrappablePrefab, transform.position, Quaternion.identity, null);
+    }
+
+    public void DropWeapons(){
+        foreach (WeaponDrop drop in weaponDrops)
+        {
+            if (UnityEngine.Random.Range(0, 100) < drop.chance)
+            {
+                Instantiate(drop.weapon, transform.position, Quaternion.identity, null);
+            }
+        }
     }
 }

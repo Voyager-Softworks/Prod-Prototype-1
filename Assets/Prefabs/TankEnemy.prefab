@@ -15435,9 +15435,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8526397793470634898}
+        m_TargetAssemblyTypeName: EnemyHealth, Assembly-CSharp
+        m_MethodName: DropWeapons
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   startingHealth: 200
   healthBar: {fileID: 3296245140274884734}
   p_scrappablePrefab: {fileID: 3031720348475087503, guid: ad9005bf3157c7346a29acf299390bd8, type: 3}
+  weaponDrops:
+  - weapon: {fileID: 6091636874978402197, guid: e21892313a3a058c0af91ee81fa45973, type: 3}
+    chance: 100
+  - weapon: {fileID: 2865754492266226779, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
+    chance: 45
+  - weapon: {fileID: 2865754492266226779, guid: 1e5ea9c4f2dff1fbeb114c7ac70e796a, type: 3}
+    chance: 45
 --- !u!114 &8526397793470634900
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -280,10 +280,28 @@ public class HardpointManager : MonoBehaviour
             if (hardpoints[selectedHardpoint].equipped.type == Equipable.EquipableType.rangedWeapon)
             {
                 Ranged_Weapon weapon = (Ranged_Weapon)hardpoints[selectedHardpoint].equipped.GetComponent<Ranged_Weapon>();
+                Equipable eq = weapon.GetComponent<Equipable>();
+                string name = eq.equipableName;
 
-                if (weapon != null)
+                List<Ranged_Weapon> weapons = new List<Ranged_Weapon>();
+                //check other hardpoints for same name, if so, try fire
+                foreach (Hardpoint h in hardpoints)
                 {
-                    weapon.TryShoot();
+                    if (h.equipped != null)
+                    {
+                        if (h.equipped.equipableName == name)
+                        {
+                            if (h.equipped.GetComponent<Ranged_Weapon>() != null)
+                            {
+                                weapons.Add(h.equipped.GetComponent<Ranged_Weapon>());
+                            }
+                        }
+                    }
+                }
+
+                foreach (Ranged_Weapon w in weapons)
+                {
+                    w.TryShoot();
                 }
             }
         }

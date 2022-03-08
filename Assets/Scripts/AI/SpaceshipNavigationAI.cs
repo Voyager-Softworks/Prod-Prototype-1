@@ -67,9 +67,10 @@ public class SpaceshipNavigationAI : MonoBehaviour
     //Detect if there is an obstacle in the way of the flight vector and adjust the flight vector to steer away from it
     void AvoidObstacles()
     {
-        
+        if (flightVector.magnitude <= 0) return;
+
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, flightVector, out hit, avoidanceRange * thrustCurve.Evaluate(Vector3.Distance(transform.position, targetPosition.position)/1000.0f)))
+        if (Physics.Raycast(transform.position, flightVector.normalized, out hit, avoidanceRange * thrustCurve.Evaluate(Vector3.Distance(transform.position, targetPosition.position)/1000.0f)))
         {
             //If the raycast hit something, adjust the flight vector to steer away from it
             flightVector = (Vector3.Reflect(flightVector, hit.normal) + flightVector);

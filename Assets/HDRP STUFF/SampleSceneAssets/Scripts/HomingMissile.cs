@@ -25,7 +25,7 @@ public class HomingMissile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody>().drag = Mathf.Lerp(GetComponent<Rigidbody>().drag, targetDrag, Time.deltaTime * targetDrag);
+        GetComponent<Rigidbody>().drag = Mathf.Lerp(GetComponent<Rigidbody>().drag, targetDrag, Time.deltaTime);
 
         if(thrusterTimer < thrusterDelay)
         {

@@ -5271,9 +5271,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
-  thrust: 1200
-  targetDrag: 2
-  turnSpeed: 30
+  thrust: 6100
+  targetDrag: 5
+  turnSpeed: 50
   secondsOfFuel: 8
   targetLock: {fileID: 0}
   thrusterDelay: 1

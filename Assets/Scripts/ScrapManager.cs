@@ -195,10 +195,7 @@ public class ScrapManager : MonoBehaviour
         RemoveInvalidScrappables();
 
         //sort scrappables by distance
-        allScrapables.Sort(delegate (Scrappable a, Scrappable b)
-        {
-            return Vector3.Distance(transform.position, a.transform.position).CompareTo(Vector3.Distance(transform.position, b.transform.position));
-        });
+        allScrapables.Sort((x, y) => Vector3.Distance(transform.position, x.transform.position).CompareTo(Vector3.Distance(transform.position, y.transform.position)));
 
         nearestScrappable = null;
         //check if any scrapables are in range

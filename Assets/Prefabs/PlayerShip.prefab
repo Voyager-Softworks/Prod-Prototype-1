@@ -8695,7 +8695,7 @@ MonoBehaviour:
   _hardpointList: {fileID: 0}
   selectedHardpoint: 0
   unequipTime: 1
-  equipDistance: 10
+  equipDistance: 15
   equipSound: {fileID: 8300000, guid: 4ea95d9807ef1f641b1a68b38744721a, type: 3}
   unequipSound: {fileID: 8300000, guid: d075a2753e0b342458882af7d2a16b67, type: 3}
   failEquipSound: {fileID: 8300000, guid: a91a670aaa648fb428ad30d5d6d6648e, type: 3}
@@ -8774,7 +8774,7 @@ MonoBehaviour:
   nearestScrappableIcon: {fileID: 0}
   nearestScrappable: {fileID: 0}
   scrapTime: 2
-  scrapDistance: 10
+  scrapDistance: 15
   scrapSound: {fileID: 8300000, guid: f6c693d1fd639f94290e0773127a00c9, type: 3}
   healSound: {fileID: 8300000, guid: 0f911f181ff1a7e428a0070e0142cb66, type: 3}
   failHealSound: {fileID: 8300000, guid: a91a670aaa648fb428ad30d5d6d6648e, type: 3}

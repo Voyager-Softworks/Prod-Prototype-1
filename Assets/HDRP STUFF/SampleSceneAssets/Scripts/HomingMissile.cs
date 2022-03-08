@@ -6,6 +6,7 @@ public class HomingMissile : MonoBehaviour
 {
     public float damage = 30.0f;
     public float thrust = 10.0f;
+    public float targetDrag = 2.0f;
     public float turnSpeed = 10.0f;
     public float secondsOfFuel = 5.0f;
 
@@ -24,6 +25,8 @@ public class HomingMissile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetComponent<Rigidbody>().drag = Mathf.Lerp(GetComponent<Rigidbody>().drag, targetDrag, Time.deltaTime * targetDrag);
+
         if(thrusterTimer < thrusterDelay)
         {
             thrusterTimer += Time.deltaTime;

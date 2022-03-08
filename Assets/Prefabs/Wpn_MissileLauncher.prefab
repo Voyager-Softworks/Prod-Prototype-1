@@ -189,7 +189,7 @@ MonoBehaviour:
   reloadTime: 3
   muzzlePositions:
   - {fileID: 6361544098542746312}
-  projectileSpeed: 100
+  projectileSpeed: 200
   projectilePrefab: {fileID: 7461583901501038898, guid: 2763652c5e17dd3d39199a11f5117145, type: 3}
   fireSource: {fileID: 6091636874978402198}
   targetLock: {fileID: 0}

@@ -337,6 +337,7 @@ public class HardpointManager : MonoBehaviour
         RemoveInvalidEquipables();
 
         //sort equipables by distance
+        //sort scrappables by distance
         allEquipables.Sort((x, y) => Vector3.Distance(transform.position, x.transform.position).CompareTo(Vector3.Distance(transform.position, y.transform.position)));
 
         nearestEquipable = null;
@@ -352,7 +353,7 @@ public class HardpointManager : MonoBehaviour
                 continue;
             }
 
-            tempNearest = eq;
+            if (tempNearest == null) tempNearest = eq;
 
             if (Vector3.Distance(eq.transform.position, transform.position) < equipDistance)
             {

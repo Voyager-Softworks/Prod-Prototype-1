@@ -30,5 +30,17 @@ public class ToggleControls : MonoBehaviour
         Debug.Log("Toggle Controls UI");
 
         o_controls.SetActive(!o_controls.activeSelf);
+
+        //if open, unlock and unhiude cursor
+        if (o_controls.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else 
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }

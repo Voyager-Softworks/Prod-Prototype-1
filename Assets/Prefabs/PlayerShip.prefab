@@ -8309,6 +8309,7 @@ MonoBehaviour:
       m_Action: Dash Left
       m_Flags: 0
     m_Flags: 0
+  lookSpeedMulti: 1
   trottleCurve:
     serializedVersion: 2
     m_Curve:

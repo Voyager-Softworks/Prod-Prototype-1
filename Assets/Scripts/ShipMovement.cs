@@ -24,6 +24,8 @@ public class ShipMovement : MonoBehaviour
     public InputAction dashRightAction;
     public InputAction dashLeftAction;
 
+    public float lookSpeedMulti = 1.0f;
+
     public AnimationCurve trottleCurve;
     public float currentThrottle = 0.0f;
 
@@ -196,9 +198,20 @@ public class ShipMovement : MonoBehaviour
         //invert y
         look.y *= -1;
 
+        look = look * lookSpeedMulti;
+
         //torque ship towards look
         rb.AddTorque(transform.up * look.x * 0.25f);
         rb.AddTorque(transform.right * look.y * 0.25f);
+    }
+
+    public void ChangeMouseSensitivity(float value) {
+        lookSpeedMulti = value;
+    }
+
+    public void MouseSensitivitySlider(float value){
+        float val = value / 20.0f;
+        ChangeMouseSensitivity(val);
     }
 
     public void UpdateUI() {

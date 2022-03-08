@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -38,6 +39,7 @@ public class HardpointManager : MonoBehaviour
 
     public TextMeshProUGUI _canEquipText;
     public TextMeshProUGUI _currentEquipText;
+    public Image nearestEquipableIcon;
     public HardpointList _hardpointList;
     private Equipable nearestEquipable = null;
     public int selectedHardpoint = 0;
@@ -73,6 +75,11 @@ public class HardpointManager : MonoBehaviour
         foreach (InputAction action in hardpointSelectActions)
         {
             action.performed += SelectHardpoint;
+        }
+
+        if (nearestEquipableIcon == null)
+        {
+            nearestEquipableIcon = GameObject.Find("NearestEquipableIcon").GetComponent<Image>();
         }
     }
 
@@ -333,6 +340,7 @@ public class HardpointManager : MonoBehaviour
         allEquipables.Sort((x, y) => Vector3.Distance(transform.position, x.transform.position).CompareTo(Vector3.Distance(transform.position, y.transform.position)));
 
         nearestEquipable = null;
+        Equipable tempNearest = null;
         _canEquipText.text = "[F] EQUIP ...";
         _canEquipText.color = c_fadedYellow;
         //check if any equipables are nearby
@@ -344,6 +352,8 @@ public class HardpointManager : MonoBehaviour
                 continue;
             }
 
+            tempNearest = eq;
+
             if (Vector3.Distance(eq.transform.position, transform.position) < equipDistance)
             {
                 nearestEquipable = eq;
@@ -351,6 +361,31 @@ public class HardpointManager : MonoBehaviour
                 _canEquipText.color = c_yellow;
                 break;
             }
+        }
+
+        //update pos of icon on screen
+        if (tempNearest != null && nearestEquipableIcon != null)
+        {
+            nearestEquipableIcon.gameObject.SetActive(true);
+
+            //get dot
+            Vector3 dir = tempNearest.transform.position - Camera.main.transform.position;
+            float dot = Vector3.Dot(Camera.main.transform.forward, dir);
+
+            //if forwards, set position on screen
+            if (dot > 0)
+            {
+                nearestEquipableIcon.transform.position = Camera.main.WorldToScreenPoint(tempNearest.transform.position);
+            }
+            //if behind, disable
+            else
+            {
+                nearestEquipableIcon.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            nearestEquipableIcon.gameObject.SetActive(false);
         }
     }
 

@@ -8691,6 +8691,7 @@ MonoBehaviour:
   _lockOnTargeter: {fileID: 0}
   _canEquipText: {fileID: 0}
   _currentEquipText: {fileID: 0}
+  nearestEquipableIcon: {fileID: 0}
   _hardpointList: {fileID: 0}
   selectedHardpoint: 0
   unequipTime: 1
@@ -8770,6 +8771,7 @@ MonoBehaviour:
   _scrapInfoText: {fileID: 0}
   _scrapText: {fileID: 0}
   _autoHealText: {fileID: 0}
+  nearestScrappableIcon: {fileID: 0}
   nearestScrappable: {fileID: 0}
   scrapTime: 2
   scrapDistance: 10

@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 //manages scrap values, usgae, and UI
 public class ScrapManager : MonoBehaviour
@@ -23,6 +24,8 @@ public class ScrapManager : MonoBehaviour
     public TextMeshProUGUI _scrapInfoText;
     public TextMeshProUGUI _scrapText;
     public TextMeshProUGUI _autoHealText;
+
+    public Image nearestScrappableIcon;
 
     public Scrappable nearestScrappable;
     public float scrapTime = 1.0f;
@@ -55,6 +58,11 @@ public class ScrapManager : MonoBehaviour
         if (shipHealth == null)
         {
             shipHealth = GetComponent<ShipHealth>();
+        }
+
+        if (nearestScrappableIcon == null)
+        {
+            nearestScrappableIcon = GameObject.Find("NearestScrappableIcon").GetComponent<Image>();
         }
     }
 
@@ -201,6 +209,33 @@ public class ScrapManager : MonoBehaviour
                 nearestScrappable = s;
                 break;
             }
+        }
+
+        //update pos of icon on screen
+        if (allScrapables.Count > 0 && nearestScrappableIcon != null)
+        {
+            nearestScrappableIcon.gameObject.SetActive(true);
+
+            Scrappable eq = allScrapables[0];
+
+            //get dot
+            Vector3 dir = eq.transform.position - Camera.main.transform.position;
+            float dot = Vector3.Dot(Camera.main.transform.forward, dir);
+
+            //if forwards, set position on screen
+            if (dot > 0)
+            {
+                nearestScrappableIcon.transform.position = Camera.main.WorldToScreenPoint(eq.transform.position);
+            }
+            //if behind, disable
+            else
+            {
+                nearestScrappableIcon.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            nearestScrappableIcon.gameObject.SetActive(false);
         }
     }
 

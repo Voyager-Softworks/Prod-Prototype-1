@@ -14,7 +14,7 @@ public class EnemyTargetLock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform.root;
         //Find all weapons
         weapons = new List<ITargetLockWeapon>();
         foreach(ITargetLockWeapon weapon in GetComponentsInChildren<ITargetLockWeapon>()){

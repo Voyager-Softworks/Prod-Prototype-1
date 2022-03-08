@@ -69,10 +69,9 @@ public class Turret_Aim : MonoBehaviour, ITargetLockWeapon
     {
         if(!doAutoAim) return false;
 
-        
-
         if (targetLock != null && targetRigidbody != null)
         {
+
             Vector3 targetDir = (targetLock.position+ (targetRigidbody.velocity * ((targetLock.position-rotatingPart.position).magnitude/weapon.projectileSpeed))) - rotatingPart.position;
             float angle = Vector3.Angle(targetDir, (alternativeForwardVector ? this.transform.up : this.transform.forward));
             if (angle < maxRotateAngle)
@@ -91,6 +90,7 @@ public class Turret_Aim : MonoBehaviour, ITargetLockWeapon
         }
         else
         {
+
             Quaternion targetRotation = Quaternion.LookRotation((alternativeForwardVector ? this.transform.up : this.transform.forward));
             rotatingPart.rotation = Quaternion.Slerp(rotatingPart.rotation, targetRotation, rotateSpeed * Time.deltaTime);
             return false;

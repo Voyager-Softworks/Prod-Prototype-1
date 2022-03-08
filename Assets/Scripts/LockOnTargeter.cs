@@ -93,6 +93,15 @@ public class LockOnTargeter : MonoBehaviour
         }
     }
 
+    public void DisableInput()
+    {
+        lockOnAction.Disable();
+    }
+
+    private void OnDestroy() {
+        DisableInput();
+    }
+
     //Raycast from the camera and check if an object is in range
     public void CheckForLockon()
     {

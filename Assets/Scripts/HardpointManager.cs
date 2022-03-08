@@ -93,6 +93,21 @@ public class HardpointManager : MonoBehaviour
 
     }
 
+    public void DisableInput(){
+        fireAction.Disable();
+        equipAction.Disable();
+        unequipAction.Disable();
+        scrollAction.Disable();
+        foreach (InputAction action in hardpointSelectActions)
+        {
+            action.Disable();
+        }
+    }
+
+    private void OnDestroy() {
+        DisableInput();
+    }
+
     public void UpdateLockon()
     {
         

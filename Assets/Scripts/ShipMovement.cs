@@ -88,6 +88,21 @@ public class ShipMovement : MonoBehaviour
         UpdateUI();
     }
 
+    public void DisableInput()
+    {
+        movementAction.Disable();
+        dampenerAction.Disable();
+        rollAction.Disable();
+        boostAction.Disable();
+        lookAction.Disable();
+        dashRightAction.Disable();
+        dashLeftAction.Disable();
+    }
+
+    private void OnDestroy() {
+        DisableInput();
+    }
+
     public void Movement() {
         //GET VALS:
         //move vec

@@ -25,6 +25,15 @@ public class ToggleControls : MonoBehaviour
         
     }
 
+    public void DisableInput()
+    {
+        toggleAction.Disable();
+    }
+
+    private void OnDestroy() {
+        DisableInput();
+    }
+
     public void ToggleControlsUI(InputAction.CallbackContext context)
     {
         Debug.Log("Toggle Controls UI");

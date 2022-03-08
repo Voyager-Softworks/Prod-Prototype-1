@@ -66,6 +66,16 @@ public class ScrapManager : MonoBehaviour
         }
     }
 
+    public void DisableInput(){
+        scrapItemAction.Disable();
+        toggleAutoHealAction.Disable();
+        healAction.Disable();
+    }
+
+    private void OnDestroy() {
+        DisableInput();
+    }
+
     // Update is called once per frame
     void Update()
     {

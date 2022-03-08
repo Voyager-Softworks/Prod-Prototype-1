@@ -41,7 +41,7 @@ public class WinChecker : MonoBehaviour
 
     public void Win(){
         Debug.Log("WIN");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 
     public void AddEnemy(EnemyHealth _enemy){

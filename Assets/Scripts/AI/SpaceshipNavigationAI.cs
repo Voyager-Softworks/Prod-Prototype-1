@@ -21,6 +21,8 @@ public class SpaceshipNavigationAI : MonoBehaviour
 
     public float turnSpeed = 3.0f;
 
+    float collisiontimer = 0.0f;
+
     //Set Flight Vector
     void SetFlightVector()
     {
@@ -76,7 +78,21 @@ public class SpaceshipNavigationAI : MonoBehaviour
         
     }
 
-    
+    // Get all objects within the avoidance range and adjust the flight vector to steer away from them
+    void AvoidObjects()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, avoidanceRange);
+        foreach (Collider hitCollider in hitColliders)
+        {
+            if (hitCollider.gameObject.tag == "Obstacle")
+            {
+                //If the raycast hit something, adjust the flight vector to steer away from it
+                flightVector = (Vector3.Reflect(flightVector, hitCollider.transform.position - transform.position) + flightVector);
+            }
+        }
+    }
+
+
 
     public void SetTarget(Transform target)
     {
@@ -95,10 +111,28 @@ public class SpaceshipNavigationAI : MonoBehaviour
     {
         SetFlightVector();
         AvoidObstacles();
+        AvoidObjects();
         RotateToFlightVector();
         //Move forward
-        rb.velocity = (transform.forward * Time.deltaTime * thrustCurve.Evaluate(Vector3.Distance(transform.position, targetPosition.position)/1000.0f) * maxThrust);
+        if(collisiontimer <= 0.0f)
+        {
+            rb.velocity = (transform.forward * Time.deltaTime * thrustCurve.Evaluate(Vector3.Distance(transform.position, targetPosition.position)/1000.0f) * maxThrust);
+        }
+        else
+        {
+            rb.velocity = (-transform.forward * Time.deltaTime * thrustCurve.Evaluate(Vector3.Distance(transform.position, targetPosition.position)/1000.0f) * maxThrust);
+        }
+        collisiontimer -= Time.deltaTime;
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        
+        collisiontimer = 1.0f;
+        
+    }
+
+    
 
     void OnDrawGizmos()
     {
